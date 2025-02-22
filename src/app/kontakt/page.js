@@ -9,7 +9,7 @@ export default function Blog() {
     return (
     <>
         <Navbar />
-        <h1>Блог</h1>
+        <h1>Kontakt</h1>
     </>
     );
 }

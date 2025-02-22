@@ -1,8 +1,15 @@
+import Navbar from "../components/Navbar";
+
 export const metadata = {
-    title: "Блог GetMon – Корисні статті про моніторинг",
+    title: "About Us | Getmon",
     description: "Читайте найновіші статті про моніторинг та аналіз даних...",
 };
 
 export default function About() {
-    return <h1>Про нас</h1>;
+    return (
+    <>
+        <Navbar />
+        <h1>About us</h1>
+    </>
+    );
 }
