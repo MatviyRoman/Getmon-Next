@@ -6,7 +6,8 @@ export default function Navbar() {
       <ul>
         <li><Link href="/">Головна</Link></li>
         <li><Link href="/about/">Про нас</Link></li>
-        <li><Link href="/blog/">Блог</Link></li>
+        <li><Link href="/blog/">Blog</Link></li>
+        <li><Link href="/kontakt/">Kontakt</Link></li>
       </ul>
     </nav>
   );
