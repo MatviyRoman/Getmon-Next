@@ -5,8 +5,8 @@ export default function Navbar() {
     <nav>
       <ul>
         <li><Link href="/">Головна</Link></li>
-        <li><Link href="/about">Про нас</Link></li>
-        <li><Link href="/blog">Блог</Link></li>
+        <li><Link href="/about/">Про нас</Link></li>
+        <li><Link href="/blog/">Блог</Link></li>
       </ul>
     </nav>
   );
