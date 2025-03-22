@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import StartSection from "@/components/sections/StartSections";
 
 export const metadata = {
   title: "Montaż klimatyzacji, instalacja anten RTV - Wrocław - Getmon.pl",
@@ -11,16 +12,17 @@ export default function Home() {
     <>
       <div className={styles.page}>
         <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
+          <StartSection />
 
           <div className={styles.ctas}>
+            <Image
+              className={styles.logo}
+              src="/next.svg"
+              alt="Next.js logo"
+              width={180}
+              height={38}
+              priority
+            />
             <a
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
               target="_blank"
