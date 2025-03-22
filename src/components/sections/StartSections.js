@@ -14,7 +14,7 @@ const StartSection = () => {
         {
             number: 1,
             title: "DARMOWA WYCENA",
-            description: `Spotkajmy się, przedstaw nam swoje oczekiwania i wizję, a my wycenimy koszt całej pracy. Możesz też zadzwonić na numer <a href="tel:884 884 823">884 884 823</a>.`
+            description: "Spotkajmy się, przedstaw nam swoje oczekiwania i wizję, a my wycenimy koszt całej pracy. Możesz też zadzwonić na numer <a href='tel:884 884 823'>884 884 823</a>."
         },
         {
             number: 2,
