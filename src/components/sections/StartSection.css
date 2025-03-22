@@ -18,6 +18,17 @@
     margin-bottom: 72px;
 }
 
+.start-section .btn {
+    color: rgb(0, 0, 0);
+    font-family: Segoe UI;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase
+}
+
 .desktop {
     display: flex;
     justify-content: space-between;
