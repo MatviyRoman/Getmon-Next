@@ -32,11 +32,16 @@ export const metadata = {
   },
 };
 
+import Header from '@/partials/Header';
+import Footer from "@/partials/Footer";
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="pl">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
