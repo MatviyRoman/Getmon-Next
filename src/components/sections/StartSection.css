@@ -1,0 +1,105 @@
+.start-section {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    background: linear-gradient(160.71deg, rgb(34, 34, 34) 21.216%,rgb(55, 55, 55) 77.846%);
+    max-height: 725px;
+    height: 100%;
+}
+
+.start-section h2.title {
+    color: rgb(255, 255, 255);
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 72px;
+}
+
+.desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 32px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.mobile {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+}
+
+.step {
+    width: 23%;
+
+    .step-number {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        /* M3/Elevation Dark/5 */
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3),0px 8px 12px 6px rgba(0, 0, 0, 0.15);
+        background: rgb(23, 23, 23);
+        position: relative;
+        margin-bottom: 20px;
+
+        span {
+            color: #FFB700;
+            font-family: Poppins;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 54px;
+            letter-spacing: 0%;
+            text-align: left;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .step-title {
+        color: rgb(255, 255, 255);
+        font-family: Poppins;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 36px;
+        letter-spacing: 0%;
+        text-align: left;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .step-description {
+        color: rgb(255, 255, 255);
+        font-family: Segoe UI;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: left;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+}
+
+.contact-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
