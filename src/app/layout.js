@@ -1,14 +1,21 @@
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
+  variable: "--font-poppins",
 });
 
 export const metadata = {
@@ -82,7 +89,7 @@ export default function RootLayout({ children }) {
         <meta property="article:modified_time" content="2023-03-11T14:53:48+00:00"></meta>
         <meta name="google-site-verification" content="99RlA_3wOmqBTKgzLHvHZVDkup8MRCWjPPqEuab81RE" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${poppins.variable}`}>
         <Header />
         {children}
         <Footer />
