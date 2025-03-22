@@ -23,6 +23,7 @@ export default function Home() {
               height={38}
               priority
             />
+            <br/>
             <a
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
               target="_blank"

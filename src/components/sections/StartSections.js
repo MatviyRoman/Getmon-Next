@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import Link from 'next/link';
 
 const StartSection = () => {
     const steps = [
@@ -71,7 +72,7 @@ const StartSection = () => {
                 </div>
             </div>
             <div className="container">
-                <button>SKONTAKTUJ SIĘ Z NAMI</button>
+                <Link href="#" className="btn btn-primary">SKONTAKTUJ SIĘ Z NAMI</Link>
             </div>
         </section>
     );

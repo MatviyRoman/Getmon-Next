@@ -2,7 +2,7 @@
     padding-top: 140px;
     padding-bottom: 140px;
     background: linear-gradient(160.71deg, rgb(34, 34, 34) 21.216%,rgb(55, 55, 55) 77.846%);
-    max-height: 725px;
+    min-height: 725px;
     height: 100%;
 }
 
@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding-bottom: 32px;
+    flex-wrap: wrap;
 
     @media (max-width: 768px) {
         display: none;
@@ -39,6 +39,15 @@
 
 .step {
     width: 23%;
+    padding-bottom: 32px;
+
+    @media (max-width: 1024px) {
+        width: 48%;
+    }
+    @media (max-width: 768px) {
+        width: 100%;
+        width: 768px;
+    }
 
     .step-number {
         width: 72px;
@@ -91,15 +100,4 @@
             text-decoration: underline;
         }
     }
-}
-
-.contact-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
