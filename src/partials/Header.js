@@ -28,7 +28,7 @@ const Header = () => {
                             <Link href="/">Systemy alarmowe</Link>
                         </li>
                         <li>
-                            <Link href="/">Blog</Link>
+                            <Link href="/blog/">Blog</Link>
                         </li>
                     </ul>
                     <ul className="nav__bottom">
