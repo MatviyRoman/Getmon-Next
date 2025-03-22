@@ -78,6 +78,8 @@ export default function RootLayout({ children }) {
           name="msapplication-TileImage"
           content="/img/cropped-getmon_fav-270x270.png"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"></meta>
+        <meta property="article:modified_time" content="2023-03-11T14:53:48+00:00"></meta>
         <meta name="google-site-verification" content="99RlA_3wOmqBTKgzLHvHZVDkup8MRCWjPPqEuab81RE" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
