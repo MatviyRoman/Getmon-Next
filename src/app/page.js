@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import StartSection from "@/components/sections/StartSections";
+import CounterSection from "@/components/sections/CounterSection";
 
 export const metadata = {
   title: "Montaż klimatyzacji, instalacja anten RTV - Wrocław - Getmon.pl",
@@ -13,6 +14,7 @@ export default function Home() {
       <div className={styles.page}>
         <main className={styles.main}>
           <StartSection />
+          <CounterSection />
 
           <div className={styles.ctas}>
             <Image

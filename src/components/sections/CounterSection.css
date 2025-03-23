@@ -1,0 +1,11 @@
+.counter-section {
+    background: rgb(23, 23, 23);
+    min-height: 961px;
+    height: 100%;
+    padding-top: 139px;
+    padding-bottom: 139px;
+
+    .container {
+        max-width: 1185px;
+    }
+}

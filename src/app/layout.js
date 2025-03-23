@@ -28,6 +28,10 @@ export const metadata = {
       name: "Roman Matviy",
       url: "https://roman.matviy.pp.ua",
     },
+    {
+      name: "APARTNER.PRO",
+      url: "https://apartner.pro",
+    },
   ],
   openGraph: {
     title: "Montaż klimatyzacji, instalacja anten RTV - Wrocław - Getmon.pl",
