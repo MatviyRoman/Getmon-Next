@@ -55,7 +55,7 @@
     .footer {
       width: 100%;
 
-      img {
+      .img {
         width: 100%;
         object-fit: contain;
         max-height: 152px;
@@ -141,7 +141,7 @@
       align-items: flex-end;
     }
 
-    img {
+    .img {
       max-height: 181px;
     }
   }

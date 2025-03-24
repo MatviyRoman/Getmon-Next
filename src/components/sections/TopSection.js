@@ -39,7 +39,7 @@ const TopSection = () => {
                                     <p className={styles.description}>{service.description}</p>
                                 </div>
                                 <div className={styles.footer}>
-                                    <img src={service.img} alt={service.title} />
+                                    <img className={styles.img} src={service.img} alt={service.title} />
                                 </div>
                             </div>
                         </div>
