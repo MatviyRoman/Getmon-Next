@@ -8,17 +8,29 @@ const TopSection = () => {
         {
             title: "MONTAŻ SYSTEMÓW KLIMATYZACJI",
             description: "Jesteśmy zespołem profesjonalistów, którzy zajmują się kompleksową usługa klimatyzacji.",
-            img: '/img/conditioner.svg'
+            img: {
+                src: '/img/conditioner.svg',
+                width: 403,
+                height: 152
+            }
         },
         {
             title: "MONTAŻ SYSTEMÓW MONITORINGU",
             description: "Podejmujemy się budowy monitoringu od a do z.",
-            img: '/img/camera.svg'
+            img: {
+                src: '/img/camera.svg',
+                width: 202,
+                height: 193
+            }
         },
         {
             title: "MONTAŻ SYSTEMÓW ALARMOWYCH",
             description: "Posiadamy szeroki asortyment systemów alarmowych dostosowanych do potrzeb Klienta.",
-            img: '/img/ajax.svg'
+            img: {
+                src: '/img/ajax.svg',
+                width: 175,
+                height: 181
+            }
         }
     ];
 
@@ -39,7 +51,7 @@ const TopSection = () => {
                                     <p className={styles.description}>{service.description}</p>
                                 </div>
                                 <div className={styles.footer}>
-                                    <img className={styles.img} src={service.img} alt={service.title} />
+                                    <Image className={styles.img} src={service.img.src} width={service.img.width} height={service.img.height} alt={service.title} />
                                 </div>
                             </div>
                         </div>
