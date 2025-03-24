@@ -26,7 +26,7 @@ const TopSection = () => {
         <section className={styles.topSection}>
             <div className="container">
                 <div className={styles.header}>
-                    <h1>NOWOCZESNE SYSTEMY, NIEZAWODNY <span>KOMFORT</span></h1>
+                    <h1>NOWOCZESNE SYSTEMY, NIEZAWODNY <span className={styles.span}>KOMFORT</span></h1>
                 </div>
             </div>
             <div className="container">
