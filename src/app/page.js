@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import TopSection from "@/components/sections/TopSection";
 import StartSection from "@/components/sections/StartSections";
 import CounterSection from "@/components/sections/CounterSection";
 
@@ -13,10 +14,11 @@ export default function Home() {
     <>
       <div className={styles.page}>
         <main className={styles.main}>
+          <TopSection />
           <StartSection />
           <CounterSection />
 
-          <div className={styles.ctas}>
+          <div>
             <Image
               className={styles.logo}
               src="/next.svg"
