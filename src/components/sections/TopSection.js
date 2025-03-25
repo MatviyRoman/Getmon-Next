@@ -51,7 +51,7 @@ const TopSection = () => {
                                     <p className={styles.description}>{service.description}</p>
                                 </div>
                                 <div className={styles.footer}>
-                                    {/* <Image className={styles.img} src={service.img.src} width={service.img.width} height={service.img.height} alt={service.title} /> */}
+                                    {/* <Image className={styles.img} src={service.img.src} width={service.img.width} height={service.img.height} alt={service.title} priority /> */}
                                     <img className={styles.img} src={service.img.src} alt={service.title} />
                                 </div>
                             </div>

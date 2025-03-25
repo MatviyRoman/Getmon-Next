@@ -15,6 +15,7 @@ export default function Home() {
       <div className={styles.page}>
         <main className={styles.main}>
           <TopSection />
+
           <StartSection />
           <CounterSection />
 
@@ -29,7 +30,7 @@ export default function Home() {
             />
             <br/>
             <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+              href="https://nextjs.org/docs"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.secondary}
