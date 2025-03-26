@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import TopSection from "@/components/sections/TopSection";
+import ServiceSection from "@/components/sections/ServiceSection";
 import StartSection from "@/components/sections/StartSections";
 import CounterSection from "@/components/sections/CounterSection";
 
@@ -15,6 +16,7 @@ export default function Home() {
       <div className={styles.page}>
         <main className={styles.main}>
           <TopSection />
+          <ServiceSection />
 
           <StartSection />
           <CounterSection />
