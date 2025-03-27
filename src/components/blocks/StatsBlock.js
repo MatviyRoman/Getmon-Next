@@ -1,5 +1,6 @@
 import React from 'react';
 import "./StatsBlock.css";
+import Image from 'next/image';
 
 const StatsBlock = ({ stats }) => {
     return (
@@ -11,7 +12,7 @@ const StatsBlock = ({ stats }) => {
                         <div className="stat-icon"></div>
                         <p className="stat-item-value">{stat.value}</p>
                         <h2 className="stat-item-title">{stat.title}</h2>
-                        <img className="stat-logo" src="/img/stat-logo.svg" alt={stat.title} />
+                        <Image className="stat-logo" src="/img/stat-logo.svg" width="68" height="51" alt={stat.title} />
                     </div>
                     <div className="stat-description">
                         <p>{stat.description}</p>

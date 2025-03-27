@@ -118,6 +118,11 @@
             position: absolute;
             right: 15px;
             bottom: 17px;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
         }
     }
 
