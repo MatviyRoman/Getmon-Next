@@ -4,6 +4,8 @@ import { useState } from "react";
 import "./Footer.css";
 import Link from "next/link";
 import Image from 'next/image';
+import FooterNavigation from '@/components/sections/FooterNavigation';
+import FooterSeoLinks from '@/components/sections/FooterSeoLinks';
 
 export default function Footer() {
     const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", agree: false });
@@ -56,26 +58,26 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* 2️⃣ 6-КОЛОНОЧНА СЕКЦІЯ */}
-            {/* <div className="footer-grid">
-        <div><h3>Категорія 1</h3><ul><li><a href="#">Посилання 1</a></li></ul></div>
-        <div><h3>Категорія 2</h3><ul><li><a href="#">Посилання 2</a></li></ul></div>
-        <div><h3>Категорія 3</h3><ul><li><a href="#">Посилання 3</a></li></ul></div>
-        <div><h3>Категорія 4</h3><ul><li><a href="#">Посилання 4</a></li></ul></div>
-        <div><h3>Категорія 5</h3><ul><li><a href="#">Посилання 5</a></li></ul></div>
-        <div><h3>Категорія 6</h3><ul><li><a href="#">Посилання 6</a></li></ul></div>
-      </div> */}
+            {/* NAVIGATION */}
+            <FooterNavigation />
 
-            {/* 3️⃣ COPYRIGHT + ПОСИЛАННЯ */}
-            {/* <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Всі права захищені.</p>
-        <nav>
-          <a href="#">Головна</a>
-          <a href="#">Про нас</a>
-          <a href="#">Контакти</a>
-          <a href="#">Політика конфіденційності</a>
-        </nav>
-      </div> */}
+            {/* COPYRIGHT */}
+            <div className="footerCopyright">
+                <div className="container">
+                    <p>
+                        © Copyright {new Date().getFullYear()} Getmon.  Nowoczesne systemy, niezawodny komfort.
+                        <Link
+                            href="/polityka-prywatnosci/"
+                            className="privacyLink"
+                        >
+                            Polityka prywatności
+                        </Link>
+                    </p>
+                </div>
+            </div>
+
+            {/* SEO LINKS */}
+            <FooterSeoLinks />
         </footer>
     );
 }
