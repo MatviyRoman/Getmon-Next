@@ -1,0 +1,45 @@
+.footerCopyright {
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    padding-top: 36px;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.copyrightText {
+    color: #AEAEAE;
+    font-family: Segoe UI;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.privacyLink {
+    /* color: #f39c12; */
+    color: #AEAEAE;
+    font-family: Segoe UI;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.privacyLink:hover {
+    text-decoration: underline;
+}
+
+.brake {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+}

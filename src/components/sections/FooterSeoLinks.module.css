@@ -2,6 +2,10 @@
     background-color: #1a1a1a;
     padding: 20px 0;
     padding-bottom: 10px;
+
+    @media (max-width: 767px) {
+        display: none;
+    }
 }
 
 .container {
@@ -38,10 +42,4 @@
 
 .separator {
     color: #666;
-}
-
-@media (max-width: 767px) {
-    .linksWrapper {
-        display: none;
-    }
 }

@@ -5,6 +5,7 @@ import "./Footer.css";
 import Link from "next/link";
 import Image from 'next/image';
 import FooterNavigation from '@/components/sections/FooterNavigation';
+import FooterCopyright from '@/components/sections/FooterCopyright';
 import FooterSeoLinks from '@/components/sections/FooterSeoLinks';
 
 export default function Footer() {
@@ -62,19 +63,7 @@ export default function Footer() {
             <FooterNavigation />
 
             {/* COPYRIGHT */}
-            <div className="footerCopyright">
-                <div className="container">
-                    <p>
-                        © Copyright {new Date().getFullYear()} Getmon.  Nowoczesne systemy, niezawodny komfort.
-                        <Link
-                            href="/polityka-prywatnosci/"
-                            className="privacyLink"
-                        >
-                            Polityka prywatności
-                        </Link>
-                    </p>
-                </div>
-            </div>
+            <FooterCopyright />
 
             {/* SEO LINKS */}
             <FooterSeoLinks />
