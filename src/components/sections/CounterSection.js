@@ -7,7 +7,7 @@ import '@/components/sections/CounterSection.css';
 
 const mockData = [
     {
-        value: 2000, // Змінити на число (не рядок)
+        value: 2000,
         title: "ZREALIZOWANYCH PROJEKTÓW",
         description: "Jesteśmy zespołem profesjonalistów, którzy zajmują się kompleksową usługą klimatyzacji."
     },
