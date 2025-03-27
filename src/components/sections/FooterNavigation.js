@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './FooterNavigation.module.css';
 import Image from 'next/image';
 import Link from "next/link";
+import { companyInfoData } from '@/data/companyInfoData';
 import { footerNavigationData } from '@/data/footerNavigationData';
 
 const FooterNavigation = () => {
@@ -29,7 +30,8 @@ const FooterNavigation = () => {
         }));
     };
 
-    const { companyInfo, menuSections } = footerNavigationData;
+    const { companyInfo } = companyInfoData;
+    const { menuSections } = footerNavigationData;
 
     return (
         <div className={styles.footerNav}>
@@ -37,7 +39,7 @@ const FooterNavigation = () => {
                 <div className={styles.logo}>
                     <Link href="/">
                         <Image
-                            src="/img/logo.svg"
+                            src={companyInfo.logo}
                             alt={`${companyInfo.name} Logo`}
                             width={140}
                             height={30}
