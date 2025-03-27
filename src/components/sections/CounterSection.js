@@ -1,42 +1,7 @@
-// import React from 'react';
-// import StatsBlock from '@/components/blocks/StatsBlock';
-// import '@/components/sections/CounterSection.css';
-
-// const mockData = [
-//     {
-//         value: "2000 +",
-//         title: "ZREALIZOWANYCH PROJEKTÓW",
-//         description: "Jesteśmy zespołem profesjonalistów, którzy zajmują się kompleksową usługą klimatyzacji."
-//     },
-//     {
-//         value: "70 +",
-//         title: "NAGRÓD I WYRÓŻNIEŃ",
-//         description: "Podejmujemy się budowy monitoringu od zera."
-//     },
-//     {
-//         value: "5 000 000 +",
-//         title: "ROBOCZOGODZIN",
-//         description: "Posiadamy szeroki asortyment systemów alarmowych dostosowanych do potrzeb Klienta."
-//     }
-// ];
-
-// const CounterSection = () => {
-//     return (
-//         <section className="counter-section">
-//             <div className="container">
-//                 <StatsBlock stats={mockData} />
-//             </div>
-//         </section>
-//     );
-// };
-
-// export default CounterSection;
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-// import { motion } from 'framer-motion';
 import StatsBlock from '@/components/blocks/StatsBlock';
 import '@/components/sections/CounterSection.css';
 
@@ -93,7 +58,6 @@ const AnimatedCounter = ({ value, suffix = " +" }) => {
     return (
         <span className="stat-item-value" ref={ref}>
             {/* {count.toLocaleString()}{suffix} */}
-            {/* {count}{suffix} */}
             {formatNumber(count)}{suffix}
         </span>
     );
