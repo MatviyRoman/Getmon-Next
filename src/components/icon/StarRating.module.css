@@ -1,0 +1,14 @@
+.starsContainer {
+    display: flex;
+    gap: 4px;
+}
+
+.filledStar {
+    color: #FFB700;
+    font-size: 1.4rem;
+}
+
+.emptyStar {
+    color: #EEE6E1;
+    font-size: 1.4rem;
+}
