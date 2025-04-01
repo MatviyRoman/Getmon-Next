@@ -32,9 +32,35 @@ body {
   font-weight: 400;
 }
 
+[aria-controls]:focus {
+  outline: none;
+  background-color: transparent !important;
+}
+
+[aria-controls][aria-expanded="true"] {
+  outline: none;
+  background-color: transparent !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.desktop {
+  display: block;
+
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.mobile {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block !important;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -92,8 +118,12 @@ a {
   justify-content: space-between;
   align-items: center;
   max-width: 1320px;
-  margin: 0 auto;
+  margin: auto 0;
   padding: 0 15px;
+
+  @media (max-width: 1320px) {
+    max-width: 100vw;
+  }
 }
 
 .logo a {
