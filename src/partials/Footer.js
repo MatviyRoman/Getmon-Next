@@ -46,7 +46,7 @@ export default function Footer() {
                         </div>
                         <div className="footer-form-right">
                             <img className="img" src="/img/air-conditioner.svg" alt="Klimatyzacja" />
-                            {/* <Image className="img" src="/img/air-conditioner.svg" width="234" height="177" alt="Klimatyzacja" priority /> */}
+                            {/* <Image className="img" src="/img/air-conditioner.svg" width="234" height="177" alt="Klimatyzacja" loading="lazy" priority={false} placeholder="blur" unoptimized={true} /> */}
                         </div>
                         <div className="footer-form-bottom">
                             <div className="footer-checkbox">

@@ -64,6 +64,7 @@
                 position: relative;
                 cursor: pointer;
                 font-size: 16px;
+                max-width: max-content;
             }
 
             /* .columnTitle::after {
@@ -85,9 +86,10 @@
     }
 
     @media (max-width: 374px) {
+
         .navColumn:nth-child(1),
         .navColumn:nth-child(2) {
-            grid-column: span 2 ;
+            grid-column: span 2;
             margin-bottom: 0;
         }
     }
@@ -135,6 +137,13 @@
     text-align: left;
     text-transform: uppercase;
     margin-bottom: 20px;
+
+    @media (min-width: 767px) {
+
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
 .navList {
@@ -161,6 +170,10 @@
     letter-spacing: 0%;
     text-align: left;
     text-transform: capitalize;
+
+    &:hover {
+        color: #FFB700;
+    }
 }
 
 .navColumn:nth-child(2) {
@@ -168,5 +181,9 @@
         font-weight: 700;
         color: #FFB700;
         text-transform: lowercase;
+
+        &:hover {
+            color: #fff;
+        }
     }
 }

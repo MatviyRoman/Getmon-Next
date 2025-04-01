@@ -16,6 +16,7 @@
     .container {
         @media (max-width: 768px) {
             max-width: 75vw;
+            margin: 0 auto;
         }
 
         @media (max-width: 350px) {
@@ -55,7 +56,7 @@
     }
 }
 
-.desktop {
+.start-section .desktop {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -66,7 +67,7 @@
     }
 }
 
-.mobile {
+.start-section .mobile {
     display: none;
 
     @media (max-width: 768px) {

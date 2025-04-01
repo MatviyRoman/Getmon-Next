@@ -4,6 +4,7 @@ import TopSection from "@/components/sections/TopSection";
 import ServiceSection from "@/components/sections/ServiceSection";
 import StartSection from "@/components/sections/StartSections";
 import CounterSection from "@/components/sections/CounterSection";
+import ReviewSection from "@/components/sections/ReviewSection";
 
 export const metadata = {
   title: "Montaż klimatyzacji, instalacja anten RTV - Wrocław - Getmon.pl",
@@ -17,11 +18,11 @@ export default function Home() {
         <main className={styles.main}>
           <TopSection />
           <ServiceSection />
-
           <StartSection />
           <CounterSection />
+          <ReviewSection />
 
-          <div>
+          {/* <div className="container">
             <Image
               className={styles.logo}
               src="/next.svg"
@@ -30,16 +31,8 @@ export default function Home() {
               height={38}
               priority
             />
-            <br/>
-            <a
-              href="https://nextjs.org/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
-            </a>
-          </div>
+          </div> */}
+          
         </main>
       </div>
     </>

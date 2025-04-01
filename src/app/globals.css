@@ -56,7 +56,7 @@ a {
 }
 
 .mobile {
-  display: none;
+  display: none !important;
 
   @media (max-width: 768px) {
     display: block !important;
