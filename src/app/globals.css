@@ -118,7 +118,7 @@ a {
   justify-content: space-between;
   align-items: center;
   max-width: 1320px;
-  margin: auto 0;
+  margin: 0 auto;
   padding: 0 15px;
 
   @media (max-width: 1320px) {
