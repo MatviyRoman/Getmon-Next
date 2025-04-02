@@ -172,10 +172,10 @@ const Header = () => {
                     {/* Desktop contacts */}
                     <ul className={styles['nav__bottom']}>
                         <li>
-                            <Link href="tel:+48 884 884 823">+48 884 884 823</Link>
+                            <Link className={link} href="tel:+48 884 884 823">+48 884 884 823</Link>
                         </li>
                         <li>
-                            <Link href="mailto:biuro@getmon.pl">biuro@getmon.pl</Link>
+                            <Link className={link} href="mailto:biuro@getmon.pl">biuro@getmon.pl</Link>
                         </li>
                     </ul>
                 </nav>

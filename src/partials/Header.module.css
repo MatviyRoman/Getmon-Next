@@ -52,10 +52,8 @@
     .nav__bottom {
         /* margin-left: 149px; */
 
-        a {
+        .link {
             color: #FFB700;
-
-
             font-family: Segoe UI;
             font-size: 16px;
             font-weight: 700;
