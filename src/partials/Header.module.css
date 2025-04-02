@@ -168,7 +168,7 @@
 
     @media (max-width: 550px) {
         .nav__bottom {
-            li + li {
+            .linkWrapper + .linkWrapper {
                 display: none;
             }
         }
