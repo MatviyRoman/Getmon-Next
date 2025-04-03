@@ -124,7 +124,7 @@ const Header = () => {
                         {menuItems.map((item, index) => (
                             <li
                                 key={index}
-                                className={`${item.submenu ? styles.hasSubmenu : ''} ${activeMenu === item.title ? styles.submenuActive : ''} linkWrapper`}
+                                className={`${item.submenu ? styles.hasSubmenu : 'hasLink'} ${activeMenu === item.title ? styles.submenuActive : ''}`}
                                 onMouseEnter={() => item.submenu && window.innerWidth > 991 && setActiveMenu(item.title)}
                                 onMouseLeave={() => item.submenu && window.innerWidth > 991 && setActiveMenu(null)}
                             >
