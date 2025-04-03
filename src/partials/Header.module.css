@@ -141,7 +141,7 @@
     @media (max-width: 991px) {
         display: block;
 
-        .nav__bottom {
+        .contacts__mobile {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -166,7 +166,7 @@
     }
 
     @media (max-width: 550px) {
-        .nav__bottom {
+        .contacts__mobile {
             .linkWrapper + .linkWrapper {
                 display: none;
             }
@@ -174,7 +174,7 @@
     }
 
     @media (max-width: 360px) {
-        .nav__bottom {
+        .contacts__mobile {
             .link {
                 font-size: 13px;
             }

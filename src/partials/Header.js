@@ -99,8 +99,8 @@ const Header = () => {
 
                 {/* Mobile contacts */}
                 <nav className={styles.navMobile}>
-                    <ul className={styles['nav__bottom']}>
-                        <li>
+                    <ul className={styles['contacts__mobile']}>
+                        <li className={styles.linkWrapper}>
                             <Link className={styles.link} href="tel:+48 884 884 823">
                                 <Image
                                     src="/img/hugeicons_hold-phone.svg"
@@ -112,7 +112,7 @@ const Header = () => {
                                 884 884 823
                             </Link>
                         </li>
-                        <li>
+                        <li className={styles.linkWrapper}>
                             <Link className={styles.link} href="mailto:biuro@getmon.pl">biuro@getmon.pl</Link>
                         </li>
                     </ul>
