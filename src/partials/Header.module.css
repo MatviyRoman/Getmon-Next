@@ -76,71 +76,6 @@
     }
 }
 
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.menu-toggle__bar {
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-}
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.menu-toggle__bar {
-    width: 30px;
-    height: 4px;
-    background-color: #fff;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.menu-toggle.active .menu-toggle__bar:nth-child(1) {
-    transform: rotate(45deg);
-    position: relative;
-    top: 8px;
-}
-
-.menu-toggle.active .menu-toggle__bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active .menu-toggle__bar:nth-child(3) {
-    transform: rotate(-45deg);
-    position: relative;
-    top: -6px;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-}
-
-.menu-toggle .menu-toggle__bar:nth-child(1),
-.menu-toggle .menu-toggle__bar:nth-child(2),
-.menu-toggle .menu-toggle__bar:nth-child(3) {
-    transform: rotate(0deg);
-    position: relative;
-    top: 0;
-}
-
 .navMobile {
     display: none;
 
@@ -226,17 +161,6 @@
             }
         }
 
-        .hasLink {
-            color: #fff;
-            font-family: var(--font-poppins);
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 24px;
-            letter-spacing: 6%;
-            text-align: left;
-            text-transform: uppercase;
-        }
-
         .nav__bottom {
             border-top: 1px solid rgb(113, 81, 0);
             /* margin-top: 40px !important;
@@ -274,8 +198,14 @@
         text-transform: uppercase;
     }
 
-    .menu-toggle {
-        display: flex;
+    .hasLink > .link {
+        color: #fff;
+        font-family: var(--font-poppins);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 6%;
+        text-transform: uppercase;
     }
 }
 
@@ -296,7 +226,7 @@
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 24px;
-    margin-top: 26px;
+    margin-top: 25px;
 
     border-radius: 0px 0px 20px 20px;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),0px 4px 8px 3px rgba(0, 0, 0, 0.15);

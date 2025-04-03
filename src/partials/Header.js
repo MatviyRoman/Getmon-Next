@@ -4,14 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.css';
+import MobileMenuToggle from '@/components/MenuToggle';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState(null);
-
-    // const toggleMenu = () => {
-    //     setIsOpen(!isOpen);
-    // };
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -85,6 +82,8 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={`${styles.container} container`}>
+
+                {/* Logo */}
                 <div className={styles.logo}>
                     <Link href="/" onClick={toggleMenu}>
                         <Image
@@ -124,7 +123,7 @@ const Header = () => {
                         {menuItems.map((item, index) => (
                             <li
                                 key={index}
-                                className={`${item.submenu ? styles.hasSubmenu : 'hasLink'} ${activeMenu === item.title ? styles.submenuActive : ''}`}
+                                className={`${item.submenu ? styles.hasSubmenu : styles.hasLink} ${activeMenu === item.title ? styles.submenuActive : ''}`}
                                 onMouseEnter={() => item.submenu && window.innerWidth > 991 && setActiveMenu(item.title)}
                                 onMouseLeave={() => item.submenu && window.innerWidth > 991 && setActiveMenu(null)}
                             >
@@ -185,15 +184,7 @@ const Header = () => {
                 </nav>
 
                 {/* Mobile menu toggle */}
-                <button
-                    className={`${styles['menu-toggle']} ${isOpen ? styles.active : ''}`} // Use the styles from the CSS module
-                    onClick={toggleMenu}
-                    aria-label="Toggle menu"
-                >
-                    <span className={styles['menu-toggle__bar']}></span>
-                    <span className={styles['menu-toggle__bar']}></span>
-                    <span className={styles['menu-toggle__bar']}></span>
-                </button>
+                <MobileMenuToggle isOpen={isOpen} toggleMenu={toggleMenu} />
             </div>
         </header>
     );
