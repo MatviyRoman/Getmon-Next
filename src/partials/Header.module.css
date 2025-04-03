@@ -209,7 +209,7 @@
             padding-right: 24px;
             width: 100%;
 
-            a {
+            .link {
                 text-align: right !important;
                 display: flex;
                 justify-content: flex-end;

@@ -130,6 +130,7 @@ const Header = () => {
                             >
                                 <Link
                                     href={item.href}
+                                    className={styles.link}
                                     onClick={(e) => {
                                         if (item.submenu && window.innerWidth <= 991) {
                                             e.preventDefault();
