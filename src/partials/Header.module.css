@@ -6,6 +6,12 @@
     border-bottom: 1px solid rgb(113, 81, 0);
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .logo a {
     color: #fff;
     text-decoration: none;
@@ -85,7 +91,6 @@
     background-color: #fff;
 }
 
-/* Basic menu toggle style */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -126,7 +131,6 @@
     -o-transform: rotate(-45deg);
 }
 
-/* Optionally, for the non-active state, you can set styles for the bars: */
 .menu-toggle .menu-toggle__bar:nth-child(1),
 .menu-toggle .menu-toggle__bar:nth-child(2),
 .menu-toggle .menu-toggle__bar:nth-child(3) {
