@@ -124,7 +124,7 @@ const Header = () => {
                         {menuItems.map((item, index) => (
                             <li
                                 key={index}
-                                className={`${item.submenu ? styles.hasSubmenu : ''} ${activeMenu === item.title ? styles.submenuActive : ''}`}
+                                className={`${item.submenu ? styles.hasSubmenu : ''} ${activeMenu === item.title ? styles.submenuActive : ''} linkWrapper`}
                                 onMouseEnter={() => item.submenu && window.innerWidth > 991 && setActiveMenu(item.title)}
                                 onMouseLeave={() => item.submenu && window.innerWidth > 991 && setActiveMenu(null)}
                             >
@@ -155,7 +155,9 @@ const Header = () => {
                                 {item.submenu && (
                                     <ul className={styles.submenu}>
                                         {item.submenu.map((subItem, subIndex) => (
-                                            <li key={subIndex}>
+                                            <li
+                                                className={styles.linkWrapper}
+                                                key={subIndex}>
                                                 <Link
                                                     href={subItem.href}
                                                     onClick={toggleMenu}
@@ -173,10 +175,10 @@ const Header = () => {
                     {/* Desktop contacts */}
                     <ul className={styles['nav__bottom']}>
                         <li className={styles.linkWrapper}>
-                            <Link className={link} href="tel:+48 884 884 823">+48 884 884 823</Link>
+                            <Link className={styles.link} href="tel:+48 884 884 823">+48 884 884 823</Link>
                         </li>
                         <li className={styles.linkWrapper}>
-                            <Link className={link} href="mailto:biuro@getmon.pl">biuro@getmon.pl</Link>
+                            <Link className={styles.link} href="mailto:biuro@getmon.pl">biuro@getmon.pl</Link>
                         </li>
                     </ul>
                 </nav>

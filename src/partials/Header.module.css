@@ -268,10 +268,10 @@
     background: rgb(23, 23, 23);
     list-style: none;
 
-    li {
+    .linkWrapper {
         margin-left: 0;
 
-        + li {
+        + .linkWrapper {
             margin-top: 10px;
         }
 
