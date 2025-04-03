@@ -153,8 +153,7 @@
             padding-bottom: 0;
         }
 
-        /* stat-description-text */
-        &-text {
+        .stat-description-text {
             color: #fff;
             font-family: var(--font-poppins);
             font-size: 28px;
