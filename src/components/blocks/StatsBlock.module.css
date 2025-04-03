@@ -51,6 +51,12 @@
         }
 
         .stat-line {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+
             position: absolute;
             border-bottom: 1px dashed #8f8f8f;
 
@@ -89,21 +95,24 @@
         }
 
         .stat-item-value {
+            margin-bottom: 14px;
+        }
+
+        .stat-item-value span {
             color: #FFB700;
-            font-family: Poppins;
+            font-family: var(--font-poppins);
             font-size: 40px;
             font-weight: 600;
             line-height: 36px;
             letter-spacing: 0%;
             text-align: left;
             text-transform: uppercase;
-            margin-bottom: 14px;
             text-shadow: 0 4px 4px rgba(0, 0, 0, 1);
         }
 
         .stat-item-title {
             color: #FFB700;
-            font-family: Poppins;
+            font-family: var(--font-poppins);
             font-size: 20px;
             font-weight: 600;
             line-height: 26px;
@@ -146,7 +155,7 @@
 
         p {
             color: #fff;
-            font-family: Poppins;
+            font-family: var(--font-poppins);
             font-size: 28px;
             font-weight: 600;
             line-height: 36px;
