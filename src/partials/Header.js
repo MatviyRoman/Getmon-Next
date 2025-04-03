@@ -160,6 +160,7 @@ const Header = () => {
                                                 key={subIndex}>
                                                 <Link
                                                     href={subItem.href}
+                                                    className={styles.link}
                                                     onClick={toggleMenu}
                                                 >
                                                     {subItem.title}

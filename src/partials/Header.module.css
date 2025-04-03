@@ -85,7 +85,6 @@
     background-color: #fff;
 }
 
-
 /* Basic menu toggle style */
 .menu-toggle {
     display: none;
@@ -275,7 +274,7 @@
             margin-top: 10px;
         }
 
-        a {
+        .link {
             font-family: Segoe UI;
             font-size: 16px;
             font-weight: 400;
@@ -304,7 +303,7 @@
         right: 0;
         max-width: 100%;
 
-        li {
+        li.linkWrapper {
             padding-left: 5px;
             padding-right: 5px;
         }
