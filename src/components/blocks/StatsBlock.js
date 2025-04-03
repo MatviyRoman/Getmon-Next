@@ -15,7 +15,7 @@ const StatsBlock = ({ stats }) => {
                         <Image className={styles['stat-logo']} src="/img/stat-logo.svg" width={68} height={51} alt={stat.title} />
                     </div>
                     <div className={styles['stat-description']}>
-                        <p>{stat.description}</p>
+                        <p className={styles['stat-description-text']}>{stat.description}</p>
                         <img className={styles['stat-line']} src="/img/line-mobile.svg" alt="line" />
                     </div>
                 </div>
