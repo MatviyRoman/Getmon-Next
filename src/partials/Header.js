@@ -15,6 +15,10 @@ const Header = () => {
         if (!isOpen) setActiveMenu(null);
     };
 
+    const hideMenu = () => {
+        setIsOpen(false);
+    };
+
     const toggleSubmenu = (menuName) => {
         if (window.innerWidth <= 768) { // For mobile devices
             setActiveMenu(activeMenu === menuName ? null : menuName);
@@ -85,7 +89,7 @@ const Header = () => {
 
                 {/* Logo */}
                 <div className={styles.logo}>
-                    <Link href="/" onClick={toggleMenu}>
+                    <Link href="/" onClick={hideMenu}>
                         <Image
                             src="/img/logo.svg"
                             alt="GetMon Logo"
