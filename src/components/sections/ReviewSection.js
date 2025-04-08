@@ -132,7 +132,7 @@ const ReviewSection = () => {
                             <SwiperSlide key={index}>
                                 <div className={styles.testimonial}>
                                     <div className={styles.header}>
-                                        <div className={styles.avatarContainer}>
+                                        {/* <div className={styles.avatarContainer}>
                                             {testimonial?.img?.src ? (
                                                 <Image
                                                     src={testimonial.img.src}
@@ -147,7 +147,7 @@ const ReviewSection = () => {
                                                     {getInitials(testimonial?.name || '')}
                                                 </span>
                                             )}
-                                        </div>
+                                        </div> */}
 
                                         <h3 className={styles.name}>
                                             {testimonial.name}
