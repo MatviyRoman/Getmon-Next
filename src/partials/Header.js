@@ -5,10 +5,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.css';
 import MobileMenuToggle from '@/components/MenuToggle';
+import { companyInfoData } from '@/data/companyInfoData';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState(null);
+    const { companyInfo } = companyInfoData;
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -91,8 +93,8 @@ const Header = () => {
                 <div className={styles.logo}>
                     <Link href="/" onClick={hideMenu}>
                         <Image
-                            src="/img/logo.svg"
-                            alt="GetMon Logo"
+                            src={companyInfo.logo}
+                            alt={companyInfo.name}
                             width={140}
                             height={30}
                             priority
@@ -104,19 +106,19 @@ const Header = () => {
                 <nav className={styles.navMobile}>
                     <ul className={styles['contacts__mobile']}>
                         <li className={styles.linkWrapper}>
-                            <Link className={styles.link} href="tel:+48 884 884 823">
+                            <Link className={styles.link} href={`tel:${companyInfo.phone.replace(/\D/g, '')}`}>
                                 <Image
                                     src="/img/hugeicons_hold-phone.svg"
-                                    alt="GetMon Logo"
+                                    alt={companyInfo.name}
                                     width={32}
                                     height={32}
                                     priority
                                 />
-                                884 884 823
+                                {companyInfo.phone_short}
                             </Link>
                         </li>
                         <li className={styles.linkWrapper}>
-                            <Link className={styles.link} href="mailto:biuro@getmon.pl">biuro@getmon.pl</Link>
+                            <Link className={styles.link} href={`mailto:${companyInfo.mail}`}>{companyInfo.mail}</Link>
                         </li>
                     </ul>
                 </nav>
@@ -179,10 +181,10 @@ const Header = () => {
                     {/* Desktop contacts */}
                     <ul className={styles['nav__bottom']}>
                         <li className={styles.linkWrapper}>
-                            <Link className={styles.link} href="tel:+48 884 884 823">+48 884 884 823</Link>
+                            <Link className={styles.link} href={`tel:${companyInfo.phone.replace(/\D/g, '')}`}>{companyInfo.phone}</Link>
                         </li>
                         <li className={styles.linkWrapper}>
-                            <Link className={styles.link} href="mailto:biuro@getmon.pl">biuro@getmon.pl</Link>
+                            <Link className={styles.link} href={`mailto:${companyInfo.mail}`}>{companyInfo.mail}</Link>
                         </li>
                     </ul>
                 </nav>

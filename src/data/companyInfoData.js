@@ -3,6 +3,9 @@ export const companyInfoData = {
     companyInfo: {
         logo: "/img/logo.svg",
         name: "GetMon",
+        phone: "+48 884 884 823",
+        phone_short: "884 884 823",
+        mail: "biuro@getmon.pl",
         address: "Podwale 37/38, 50-040 Wrocław",
         contacts: [
             { text: "+48 884 884 823", url: "tel:+48884884823" },
