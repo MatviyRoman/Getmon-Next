@@ -1,5 +1,6 @@
 // import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
 // const geistSans = Geist({
@@ -16,6 +17,12 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-poppins",
+});
+
+const roboto = Roboto({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
 });
 
 export const metadata = {
@@ -62,8 +69,8 @@ export const metadata = {
 {/* <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://getmon.pl/","url":"https://getmon.pl/","name":"Montaż klimatyzacji, instalacja anten RTV - Wrocław - Getmon.pl","isPartOf":{"@id":"https://getmon.pl/#website"},"datePublished":"2023-02-28T19:08:51+00:00","dateModified":"2023-03-11T14:53:48+00:00","description":"Zajmujemy się montażem anten, alarmu i klimatyzacji na terenie Wrocławia ⭐ Gwarancja ✅ bezpieczeństwo ✅ sprawdź naszą ofertę!","breadcrumb":{"@id":"https://getmon.pl/#breadcrumb"},"inLanguage":"pl-PL","potentialAction":[{"@type":"ReadAction","target":["https://getmon.pl/"]}]},{"@type":"BreadcrumbList","@id":"https://getmon.pl/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Strona główna"}]},{"@type":"WebSite","@id":"https://getmon.pl/#website","url":"https://getmon.pl/","name":"Getmon","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://getmon.pl/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"pl-PL"}]}</script> */}
 
 
-import Header from '@/partials/Header';
-import Footer from "@/partials/Footer";
+import Header from '@/components/parts/Header';
+import Footer from "@/components/parts/Footer";
 
 export default function RootLayout({ children }) {
   return (
@@ -93,7 +100,7 @@ export default function RootLayout({ children }) {
         <meta property="article:modified_time" content="2023-03-11T14:53:48+00:00"></meta>
         <meta name="google-site-verification" content="99RlA_3wOmqBTKgzLHvHZVDkup8MRCWjPPqEuab81RE" />
       </head>
-      <body className={`${poppins.variable}`}>
+      <body className={`${poppins.variable} ${roboto.variable}`}>
         <Header />
         {children}
         <Footer />

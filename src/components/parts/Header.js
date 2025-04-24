@@ -4,13 +4,15 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.css';
-import MobileMenuToggle from '@/components/MenuToggle';
+import MobileMenuToggle from '@/components/parts/MenuToggle';
 import { companyInfoData } from '@/data/companyInfoData';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState(null);
     const { companyInfo } = companyInfoData;
+    const pathname = usePathname();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -32,6 +34,7 @@ const Header = () => {
         {
             title: "Klimatyzacja",
             href: "#",
+            link: "/klimatyzacja-wroclaw/",
             submenu: [
                 { title: "Klimatyzacja Wrocław", href: "/klimatyzacja-wroclaw/" },
                 { title: "Ścienna (split)", href: "/klimatyzacja-scienna-split-wroclaw/" },
@@ -46,6 +49,7 @@ const Header = () => {
         {
             title: "Monitoring",
             href: "#",
+            link: "/montaz-monitoringu-wroclaw/",
             submenu: [
                 { title: "O monitoringu", href: "/montaz-monitoringu-wroclaw/" },
                 { title: "Cyfrowy IP", href: "/montaz-monitoringu-cyfrowego-ip-wroclaw/" },
@@ -56,6 +60,7 @@ const Header = () => {
         {
             title: "Systemy alarmowe",
             href: "#",
+            link: "/systemy-alarmowe-wroclaw/",
             submenu: [
                 { title: "O systemach alarmowych", href: "/systemy-alarmowe-wroclaw/" },
                 { title: "Przewodowe", href: "/systemy-alarmowe-przewodowe-wroclaw/" },
@@ -65,7 +70,8 @@ const Header = () => {
         },
         {
             title: "Blog",
-            href: "/blog",
+            href: "/blog/",
+            link: "/blog/",
             submenu: null
         },
         // {
@@ -135,7 +141,7 @@ const Header = () => {
                             >
                                 <Link
                                     href={item.href}
-                                    className={styles.link}
+                                    className={`${styles.link} ${pathname.startsWith(item.link) ? styles.active : ''}`}
                                     onClick={(e) => {
                                         if (item.submenu && window.innerWidth <= 991) {
                                             e.preventDefault();

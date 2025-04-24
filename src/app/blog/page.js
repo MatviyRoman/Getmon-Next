@@ -1,304 +1,332 @@
+// app/blog/page.js
 import Link from 'next/link';
+import Image from 'next/image';
+import styles from './Blog.module.css';
+import PaginationControls from '@/components/parts/PaginationControls';
 
 export const metadata = {
     title: "Blog | Getmon",
-    description: "Читайте найновіші статті про моніторинг та аналіз даних...",
+    description: "Przeczytaj najnowsze artykuły na temat klimatyzacji i wentylacji...",
 };
 
+// Mock data for blog posts
+const mockPosts = [
+    {
+        id: 1,
+        slug: "post1",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU?",
+        content: "Jeżeli chcesz zamontować klimatyzację w swoim domu lub mieszkaniu, to zapraszamy do zapoznania się z nasza oferta która obejmuje najwyższej jakości sprzęty.",
+        date: "12.11.2025",
+        category: {
+            id: 2,
+            name: "O naszej firmie"
+        },
+        quote: "Najwyższa jakość sprzętu to nasz priorytet",
+        image: "/img/blog/blog1.png",
+        htmlContent: "<p>Jeżeli chcesz zamontować <strong>klimatyzację</strong> w swoim domu...</p>"
+    },
+    {
+        id: 2,
+        slug: "post2",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
+        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog2.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    },
+    {
+        id: 3,
+        slug: "post3",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "Klimatyzacja przypodłogowo-podsufitowa",
+        content: "GETMON od lat instaluje systemy klimatyzacji do biur, firm i mieszkań we Wrocławiu i okolicach. Mamy wiele różnych systemów do wyboru, więc możesz znaleźć idealny dla swoich potrzeb.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog3.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    },
+    {
+        id: 4,
+        slug: "post4",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "Jak działa klimatyzacja przypodłogowo-podsufitowa?",
+        content: "Klimatyzacja w mieszkaniu to zazwyczaj dużo niższy koszt.Cena urządzeń to 2-4 tys. zł i w przypadku małych powierzchni będą one wystarczające.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog4.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    },
+    {
+        id: 5,
+        slug: "post5",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
+        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog5.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    },
+    {
+        id: 6,
+        slug: "post6",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
+        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog6.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    },
+    {
+        id: 7,
+        slug: "post1",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
+        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog6.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    },
+    {
+        id: 8,
+        slug: "post1",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
+        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog6.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    },
+    {
+        id: 9,
+        slug: "post1",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
+        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog6.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    },
+    {
+        id: 10,
+        slug: "post1",
+        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
+        meta_description:
+            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
+        meta_robots:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
+        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
+        date: "12.11.2025",
+        category: {
+            id: 1,
+            name: "Nasze praktyki"
+        },
+        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
+        image: "/img/blog/blog6.png",
+        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
+    }
+];
+
 export default async function Blog({ searchParams }) {
-    // First await the searchParams
-    const params = await new Promise((resolve) => {
-        setTimeout(() => resolve(searchParams), 0);
-    });
-    
-    // Then safely access the page parameter
-    const pageParam = params?.page;
-    const currentPage = pageParam ? Number(pageParam) : 1;
-    const postsPerPage = 10;
-    
-    // Rest of your component remains the same
-    const offset = (currentPage - 1) * postsPerPage;
-    
+    const params = await searchParams;
+    const currentPage = Number(params?.page) || 1;
+    const categoryId = Number(params?.categoryID) || null;
+
+    const postsPerPage = 6;
+
+    // Filter posts by category if specified
+    const filteredPosts = categoryId
+        ? mockPosts.filter(post => post.category.id === categoryId)
+        : mockPosts;
+
+    // Pagination logic
+    const totalPosts = filteredPosts.length;
+    const totalPages = Math.ceil(totalPosts / postsPerPage);
+    const startIndex = (currentPage - 1) * postsPerPage;
+    const paginatedPosts = filteredPosts.slice(startIndex, startIndex + postsPerPage);
+
+    /* 
+    // REAL API IMPLEMENTATION (COMMENTED OUT)
+    const apiUrl = process.env.API_URL;
     let posts = [];
     let totalPosts = 0;
-    
+
     try {
-        const [postsRes, totalRes] = await Promise.all([
-            fetch(`https://jsonplaceholder.typicode.com/posts?_start=${offset}&_limit=${postsPerPage}`),
-            fetch('https://jsonplaceholder.typicode.com/posts')
-        ]);
-        
-        posts = await postsRes.json();
-        totalPosts = (await totalRes.json()).length;
+        const url = categoryId
+            ? `${apiUrl}/api/posts?page=${currentPage}&per_page=${postsPerPage}&category=${categoryId}`
+            : `${apiUrl}/api/posts?page=${currentPage}&per_page=${postsPerPage}`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+        posts = data.posts;
+        totalPosts = data.total;
     } catch (error) {
         console.error("Failed to fetch posts:", error);
     }
-    
-    const totalPages = Math.ceil(totalPosts / postsPerPage);
+    */
 
     return (
-        <div className="blog-container">
-            <h1 className="blog-title">Blog Posts</h1>
-            
-            {posts.length > 0 ? (
+        <>
+            {/* <h1 className={styles.blogTitle}>Nasz Blog</h1> */}
+
+            {/* Category filters */}
+            <div className={styles.categoryFilters}>
+                <div className={`${styles.container} container`}>
+                    <Link
+                        href="/blog"
+                        className={`${styles.categoryButton} ${!categoryId ? styles.active : ''}`}
+                    >
+                        Wszystkie
+                    </Link>
+                    <Link
+                        href="/blog?categoryID=1"
+                        className={`${styles.categoryButton} ${categoryId === 1 ? styles.active : ''}`}
+                    >
+                        Nasze praktyki
+                    </Link>
+                    <Link
+                        href="/blog?categoryID=2"
+                        className={`${styles.categoryButton} ${categoryId === 2 ? styles.active : ''}`}
+                    >
+                        O naszej firmie
+                    </Link>
+                    <Link
+                        href="/blog?categoryID=3"
+                        className={`${styles.categoryButton} ${categoryId === 3 ? styles.active : ''}`}
+                    >
+                        Część teoretyczna procesów
+                    </Link>
+                </div>
+            </div>
+
+            {/* Posts list */}
+            {paginatedPosts.length > 0 ? (
                 <>
-                    <ul className="posts-list">
-                        {posts.map((post) => (
-                            <li key={post.id} className="post-item">
-                                <h2 className="post-title">{post.title}</h2>
-                                <p className="post-body">{post.body}</p>
-                            </li>
+                    <div className={styles.postsList}>
+                        {paginatedPosts.map((post) => (
+                            <article key={post.id} className={styles.postItem}>
+                                <div className={`${styles.container} container`}>
+                                    {post.image && (
+                                        <Link href={`/blog/${post.slug}`}>
+                                            <Image
+                                                src={post.image}
+                                                alt={post.title}
+                                                width={256}
+                                                height={154}
+                                                className={styles.postImage}
+                                            />
+                                        </Link>
+                                    )}
+                                    <div className={styles.postContent}>
+                                        <h2 className={styles.postTitle}>
+                                            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                                        </h2>
+                                        <div
+                                            className={styles.postExcerpt}
+                                        >
+                                            { post.content }
+                                        </div>
+                                        {/* <div
+                                            className={styles.postExcerpt}
+                                            dangerouslySetInnerHTML={{ __html: post.htmlContent || post.content }}
+                                        /> */}
+                                        <div className={styles.postMeta}>
+                                            <span className={styles.postCategory}>{post.category.name}</span>
+                                            <time className={styles.postDate}>{post.date}</time>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
                         ))}
-                    </ul>
-                    
-                    <PaginationControls 
-                        currentPage={currentPage}
-                        totalPages={totalPages}
-                    />
+                    </div>
+
+                    <div className={`${styles.container} container`}>
+                        <PaginationControls
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            categoryId={categoryId}
+                        />
+                    </div>
                 </>
             ) : (
-                <p>No posts found.</p>
+                <p className={styles.noPosts}>Brak postów do wyświetlenia.</p>
             )}
-        </div>
+        </>
     );
 }
-
-function PaginationControls({ currentPage, totalPages }) {
-    const getPageNumbers = () => {
-        const pages = [];
-        const maxVisiblePages = 5;
-        
-        let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-        
-        if (endPage - startPage + 1 < maxVisiblePages) {
-            startPage = Math.max(1, endPage - maxVisiblePages + 1);
-        }
-        
-        for (let i = startPage; i <= endPage; i++) {
-            pages.push(i);
-        }
-        
-        return pages;
-    };
-
-    return (
-        <div className="pagination">
-            {currentPage > 1 ? (
-                <Link 
-                    href={`/blog?page=${currentPage - 1}`} 
-                    className="pagination-link"
-                >
-                    &laquo; Previous
-                </Link>
-            ) : (
-                <span className="pagination-disabled">&laquo; Previous</span>
-            )}
-            
-            {getPageNumbers().map((page) => (
-                <Link
-                    key={page} 
-                    href={`/blog?page=${page}`}
-                    className={`pagination-link ${page === currentPage ? 'active' : ''}`}
-                >
-                    {page}
-                </Link>
-            ))}
-            
-            {currentPage < totalPages ? (
-                <Link 
-                    href={`/blog?page=${currentPage + 1}`} 
-                    className="pagination-link"
-                >
-                    Next &raquo;
-                </Link>
-            ) : (
-                <span className="pagination-disabled">Next &raquo;</span>
-            )}
-        </div>
-    );
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// "use client";
-
-// import Link from "next/link";
-
-// export const metadata = {
-//     title: "Blog | Getmon",
-//     description: "Читайте найновіші статті про моніторинг та аналіз даних...",
-// };
-
-// export default async function Blog({ searchParams }) {
-//     // Properly handle searchParams
-//     const pageParam = searchParams?.page;
-//     const currentPage = pageParam ? Number(pageParam) : 1;
-//     const postsPerPage = 10;
-    
-//     // Calculate offset for pagination
-//     const offset = (currentPage - 1) * postsPerPage;
-    
-//     // Fetch data with error handling
-//     let posts = [];
-//     let totalPosts = 0;
-    
-//     try {
-//         const [postsRes, totalRes] = await Promise.all([
-//             fetch(`https://jsonplaceholder.typicode.com/posts?_start=${offset}&_limit=${postsPerPage}`),
-//             fetch('https://jsonplaceholder.typicode.com/posts')
-//         ]);
-        
-//         posts = await postsRes.json();
-//         totalPosts = (await totalRes.json()).length;
-//     } catch (error) {
-//         console.error("Failed to fetch posts:", error);
-//     }
-    
-//     const totalPages = Math.ceil(totalPosts / postsPerPage);
-
-//     return (
-//         <div className="container">
-//             <div className="blog">
-//                 <h1 className="blog-title">Blog Posts</h1>
-                
-//                 {posts.length > 0 ? (
-//                     <>
-//                         <ul className="posts-list">
-//                             {posts.map((post) => (
-//                                 <li key={post.id} className="post-item">
-//                                     <h2 className="post-title">{post.title}</h2>
-//                                     <p className="post-body">{post.body}</p>
-//                                 </li>
-//                             ))}
-//                         </ul>
-//                         <br/><br/>
-//                         <PaginationControls 
-//                             currentPage={currentPage}
-//                             totalPages={totalPages}
-//                         />
-//                     </>
-//                 ) : (
-//                     <p>No posts found.</p>
-//                 )}
-//             </div>
-//         </div>
-//     );
-// }
-
-// function PaginationControls({ currentPage, totalPages }) {
-//     const getPageNumbers = () => {
-//         const pages = [];
-//         const maxVisiblePages = 5;
-        
-//         let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-//         let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-        
-//         if (endPage - startPage + 1 < maxVisiblePages) {
-//             startPage = Math.max(1, endPage - maxVisiblePages + 1);
-//         }
-        
-//         for (let i = startPage; i <= endPage; i++) {
-//             pages.push(i);
-//         }
-        
-//         return pages;
-//     };
-
-//     return (
-//         <div className="pagination">
-//             {currentPage > 1 ? (
-//                 <Link 
-//                     href={`/blog?page=${currentPage - 1}`} 
-//                     className="pagination-link"
-//                 >
-//                     &laquo; Previous
-//                 </Link>
-//             ) : (
-//                 <span className="pagination-disabled">&laquo; Previous</span>
-//             )}
-            
-//             {getPageNumbers().map((page) => (
-//                 <Link
-//                     key={page} 
-//                     href={`/blog?page=${page}`}
-//                     className={`pagination-link ${page === currentPage ? 'active' : ''}`}
-//                 >
-//                     {page}
-//                 </Link>
-//             ))}
-            
-//             {currentPage < totalPages ? (
-//                 <Link 
-//                     href={`/blog?page=${currentPage + 1}`} 
-//                     className="pagination-link"
-//                 >
-//                     Next &raquo;
-//                 </Link>
-//             ) : (
-//                 <span className="pagination-disabled">Next &raquo;</span>
-//             )}
-//         </div>
-//     );
-// }
-
-// export const metadata = {
-//     title: "Blog | Getmon",
-//     description: "Читайте найновіші статті про моніторинг та аналіз даних...",
-// };
-
-// export default async function Blog() {
-//     // Запит до публічного API JSONPlaceholder для отримання постів
-//     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-//     const posts = await res.json();
-
-//     return (
-//         <>
-//             <h1>Blog Posts</h1>
-//             <ul>
-//                 {posts.map((post) => (
-//                     <li key={post.id}>
-//                         <h2>{post.title}</h2>
-//                         <p>{post.body}</p>
-//                     </li>
-//                 ))}
-//             </ul>
-//         </>
-//     );
-// }

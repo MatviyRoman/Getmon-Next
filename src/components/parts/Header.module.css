@@ -41,6 +41,10 @@
         color: #FFB700;
     }
 
+    &.active {
+        color: #FFB700 !important;
+    }
+
     .arrow {
         display: none;
     }

@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import styles from "./Footer.module.css";
+import styles from "@/components/parts/Footer.module.css";
 import ContactForm from '@/components/sections/ContactForm';
 import FooterNavigation from '@/components/sections/FooterNavigation';
 import FooterCopyright from '@/components/sections/FooterCopyright';

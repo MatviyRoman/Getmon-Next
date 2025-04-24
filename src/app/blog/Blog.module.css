@@ -1,0 +1,209 @@
+/* app/blog/Blog.module.css */
+.container {
+    gap: 16px;
+    max-width: 878px;
+    width: 100%;
+}
+
+.blogTitle {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.categoryFilters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+
+    background: linear-gradient(160.71deg, rgb(34, 34, 34) 30.91%,rgb(55, 55, 55) 67.722%);
+    padding-top: 72px;
+    padding-bottom: 72px;
+    margin-bottom: 72px;
+
+    @media (max-width: 575px) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        @media (max-width: 575px) {
+            gap: 12px;
+        }
+    }
+}
+
+.categoryButton {
+    border-radius: 24px;
+    background: #000000;
+    padding: 7px 30px 7px 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    color: #ffffff;
+    font-family: Segoe UI;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 0%;
+    text-align: left;
+    overflow: hidden;
+}
+
+.categoryButton:hover {
+    color: #FFB700;
+}
+
+.categoryButton.active {
+    color: #FFB700;
+}
+
+.postsList {
+    display: grid;
+    gap: 40px;
+
+    @media (max-width: 575px) {
+        gap: 30px;
+    }
+}
+
+.postItem {
+    min-height: 154px;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .container {
+        align-items: flex-start;
+        gap: 36px;
+
+        @media (max-width: 575px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+
+.postImage {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    max-width: 256px;
+    min-width: 256px;
+    object-fit: cover;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+
+.postContent {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 9px;
+}
+
+.postTitle a {
+    color: #000000;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+
+    @media (max-width: 575px) {
+        font-size: 18px;
+    }
+}
+
+.postMeta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.postCategory {
+    color: #000000;
+    font-family: Segoe UI;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 17px;
+    letter-spacing: 0%;
+}
+
+.postDate {
+    color: #000000;
+    font-family: Segoe UI;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0%;
+}
+
+.postExcerpt {
+    color: #000000;
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    margin-bottom: 20px;
+
+    @media (max-width: 575px) {
+        font-size: 15px;
+    }
+}
+
+.postExcerpt p {
+    color: #000000;
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    margin-bottom: 20px;
+
+    @media (max-width: 575px) {
+        font-size: 15px;
+    }
+}
+
+.postExcerpt strong {
+    font-weight: 600;
+}
+
+.postExcerpt em {
+    font-style: italic;
+}
+
+.postQuote {
+    border-left: 4px solid #0066cc;
+    padding-left: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+}
+
+.noPosts {
+    text-align: center;
+    padding: 40px;
+    color: #f00;
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    margin-bottom: 72px;
+
+    @media (max-width: 575px) {
+        margin-bottom: 30px;
+    }
+}
