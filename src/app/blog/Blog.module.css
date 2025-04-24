@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+.main {
+    background: var(--foreground);
+}
+
 .blogTitle {
     font-size: 2.5rem;
     text-align: center;
