@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import ButtonLink from '@/components/parts/ButtonLink';
 import Image from 'next/image';
-import styles from './not-found.module.css';
+import styles from './[...not_found]/not-found.module.css';
 import { get404Data } from '@/api/404';
 
 export default function NotFound() {

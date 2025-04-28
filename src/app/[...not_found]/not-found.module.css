@@ -1,0 +1,91 @@
+.wrapper {
+    background: linear-gradient(160.71deg, rgb(34, 34, 34) 19.016%,rgb(55, 55, 55) 80.143%);
+    /* padding-top: 139px; */
+    /* padding-bottom: 139px; */
+    padding-top: 30px;
+    padding-bottom: 30px;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 62px);
+
+    @media (max-width: 768px) {
+        min-height: calc(100vh - 48px);
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.wrapperText {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+    /* margin-top: 44px; */
+    margin-top: 22px;
+    margin-bottom: 72px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        margin-top: 60px;
+        margin-bottom: 89px;
+    }
+}
+
+.imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    max-width: 480px;
+}
+
+.imageWrapper .image {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    width: 100%;
+    height: auto;
+}
+
+.title {
+    color: #ffffff;
+    font-family: var(--font-poppins);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+}
+
+.description {
+    color: #ffffff;
+    font-family: Segoe UI;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0%;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        font-size: 21px;
+    }
+}
