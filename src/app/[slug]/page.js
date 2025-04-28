@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-    // const res = await fetch(`${process.env.API_URL}/api/pages/${params.slug}/page `);
+    // const res = await fetch(`${process.env.API_URL}/api/pages/${params.slug}/ `);
     // const page = await res.json();
 
     const page = getMockPageBySlug(params.slug);
@@ -37,14 +37,20 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-    // const res = await fetch(`${process.env.API_URL}/api/pages/${params.slug}`);
-    // const pageData = await res.json();
+    try {
+        // const res = await fetch(`${process.env.API_URL}/api/pages/${params.slug}`);
+        // const pageData = await res.json();
 
-    const pageData = getMockPageBySlug(params.slug);
+        const pageData = await getMockPageBySlug(params.slug);
 
-    if (!pageData || !pageData.sections) {
-        notFound();
+        if (!pageData || !pageData.sections) {
+            notFound(); // notFound 404
+        }
+
+        return <DynamicPage pageData={pageData} />;
+
+    } catch (error) {
+        console.error('Error in Page fetch:', error);
+        notFound(); // notFound 404
     }
-
-    return <DynamicPage pageData={pageData} />;
 }
