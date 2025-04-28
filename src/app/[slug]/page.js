@@ -15,25 +15,31 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-    // const res = await fetch(`${process.env.API_URL}/api/pages/${params.slug}/ `);
-    // const page = await res.json();
+    try {
+        const page = await getMockPageBySlug(params.slug);
 
-    const page = getMockPageBySlug(params.slug);
+        if (!page) {
+            return {}; // Порожнє metadata (можна краще обробити)
+        }
 
-    return {
-        title: page.meta_title,
-        description: page.meta_description,
-        openGraph: {
+        return {
             title: page.meta_title,
             description: page.meta_description,
-            url: `https://getmon.pl/${page.slug}`,
-            type: 'article',
-        },
-        robots: page.meta_robots,
-        alternates: {
-            canonical: `https://getmon.pl/${page.slug}`,
-        },
-    };
+            openGraph: {
+                title: page.meta_title,
+                description: page.meta_description,
+                url: `https://getmon.pl/${page.slug}`,
+                type: 'article',
+            },
+            robots: page.meta_robots,
+            alternates: {
+                canonical: `https://getmon.pl/${page.slug}`,
+            },
+        };
+    } catch (error) {
+        console.error('Error in generateMetadata:', error);
+        return {}; // fallback metadata
+    }
 }
 
 export default async function Page({ params }) {
