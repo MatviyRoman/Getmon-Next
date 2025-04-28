@@ -1,210 +1,19 @@
 // app/blog/page.js
-import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Blog.module.css';
 import PaginationControls from '@/components/parts/PaginationControls';
 import CategoryFilters from '@/components/blog/CategoryFilters';
+import PostItem from '@/components/blog/PostItem';
+import { getMockPosts } from '@/data/postData'; // Mock data for blog posts
 
 export const metadata = {
     title: "Blog | Getmon",
     description: "Przeczytaj najnowsze artykuły na temat klimatyzacji i wentylacji...",
 };
 
-// Mock data for blog posts
-const mockPosts = [
-    {
-        id: 1,
-        slug: "post1",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU?",
-        content: "Jeżeli chcesz zamontować klimatyzację w swoim domu lub mieszkaniu, to zapraszamy do zapoznania się z nasza oferta która obejmuje najwyższej jakości sprzęty.",
-        date: "12.11.2025",
-        category: {
-            id: 2,
-            name: "O naszej firmie"
-        },
-        quote: "Najwyższa jakość sprzętu to nasz priorytet",
-        image: "/img/blog/blog1.png",
-        htmlContent: "<p>Jeżeli chcesz zamontować <strong>klimatyzację</strong> w swoim domu...</p>"
-    },
-    {
-        id: 2,
-        slug: "post2",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
-        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog2.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    },
-    {
-        id: 3,
-        slug: "post3",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "Klimatyzacja przypodłogowo-podsufitowa",
-        content: "GETMON od lat instaluje systemy klimatyzacji do biur, firm i mieszkań we Wrocławiu i okolicach. Mamy wiele różnych systemów do wyboru, więc możesz znaleźć idealny dla swoich potrzeb.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog3.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    },
-    {
-        id: 4,
-        slug: "post4",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "Jak działa klimatyzacja przypodłogowo-podsufitowa?",
-        content: "Klimatyzacja w mieszkaniu to zazwyczaj dużo niższy koszt.Cena urządzeń to 2-4 tys. zł i w przypadku małych powierzchni będą one wystarczające.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog4.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    },
-    {
-        id: 5,
-        slug: "post5",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
-        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog5.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    },
-    {
-        id: 6,
-        slug: "post6",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
-        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog6.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    },
-    {
-        id: 7,
-        slug: "post1",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
-        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog6.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    },
-    {
-        id: 8,
-        slug: "post1",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
-        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog6.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    },
-    {
-        id: 9,
-        slug: "post1",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
-        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog6.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    },
-    {
-        id: 10,
-        slug: "post1",
-        meta_title: "JAKI JEST KOSZT ZAKUPU KLIMATYZACJI DO DOMU? - Getmon.pl",
-        meta_description:
-            "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
-        meta_robots:
-            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-        title: "ILE KOSZTUJE KLIMATYZACJA DO MIESZKANIA?",
-        content: "Klimatyzacja w mieszkaniu to zazwyczaj niższy koszt. Cena urządzeń to 2-4 tys. zł w przypadku małych powierzchni.",
-        date: "12.11.2025",
-        category: {
-            id: 1,
-            name: "Nasze praktyki"
-        },
-        quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
-        image: "/img/blog/blog6.png",
-        htmlContent: "<p>Klimatyzacja w mieszkaniu to <em>zazwyczaj niższy koszt</em>...</p>"
-    }
-];
-
 export default async function Blog({ searchParams }) {
+    const mockPosts = await getMockPosts();
+
     const params = await searchParams;
     const currentPage = Number(params?.page) || 1;
     const categoryId = Number(params?.categoryID) || null;
@@ -252,42 +61,13 @@ export default async function Blog({ searchParams }) {
             {/* Posts list */}
             {paginatedPosts.length > 0 ? (
                 <>
-                    <div className={styles.postsList}>
-                        {paginatedPosts.map((post) => (
-                            <article key={post.id} className={styles.postItem}>
-                                <div className={`${styles.container} container`}>
-                                    {post.image && (
-                                        <Link href={`/blog/${post.slug}`}>
-                                            <Image
-                                                src={post.image}
-                                                alt={post.title}
-                                                width={256}
-                                                height={154}
-                                                className={styles.postImage}
-                                            />
-                                        </Link>
-                                    )}
-                                    <div className={styles.postContent}>
-                                        <h2 className={styles.postTitle}>
-                                            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                        </h2>
-                                        <div
-                                            className={styles.postExcerpt}
-                                        >
-                                            { post.content }
-                                        </div>
-                                        {/* <div
-                                            className={styles.postExcerpt}
-                                            dangerouslySetInnerHTML={{ __html: post.htmlContent || post.content }}
-                                        /> */}
-                                        <div className={styles.postMeta}>
-                                            <span className={styles.postCategory}>{post.category.name}</span>
-                                            <time className={styles.postDate}>{post.date}</time>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        ))}
+                    {/* <h1 className={styles.blogTitle}>Nasz Blog</h1> */}
+                    <div className={`${styles.container} container`}>
+                        <div className={styles.postsList}>
+                            {paginatedPosts.map((post) => (
+                                <PostItem key={post.id} post={post} />
+                            ))}
+                        </div>
                     </div>
 
                     <div className={`${styles.container} container`}>

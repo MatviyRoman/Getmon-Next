@@ -1,0 +1,192 @@
+/* app/blog/Blog.module.css */
+.container {
+    gap: 0 !important;
+    max-width: 878px;
+    width: 100%;
+    flex-direction: column;
+    margin: auto;
+    align-items: flex-start;
+}
+
+.postItem {
+
+}
+
+.postTitle {
+    color: #000000;
+    font-family: var(--font-poppins);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 32px;
+        margin-bottom: 20px;
+    }
+}
+
+.postImage, .htmlContent img  {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+
+.htmlContent {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @media (max-width: 768px) {
+        gap: 20px;
+    }
+}
+
+.htmlContent * {
+    color: #000000;
+    font-family: Segoe UI;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: left;
+
+    @media (max-width: 768px) {
+        gap: 20px;
+
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+}
+
+.htmlContent h1, .htmlContent h2, .htmlContent h3, .htmlContent h4, .htmlContent h5, .htmlContent h6 {
+    color: #000000;
+    font-family: var(--font-poppins);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+}
+
+.htmlContent b, .htmlContent strong {
+    font-weight: 600;
+}
+
+.htmlContent em {
+    font-style: italic;
+}
+
+.socialShare {
+    background: linear-gradient(160.71deg, rgb(55, 55, 55) 31.821%,rgb(34, 34, 34) 66.771%);
+    width: 100%;
+    margin-top: 72px;
+    margin-bottom: 72px;
+
+    @media (max-width: 768px) {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center !important;
+        flex-direction: row;
+        min-height: 84px;
+        height: 100%;
+        gap: 40px;
+
+        @media (max-width: 768px) {
+            justify-content: center;
+            min-height: 64px;
+        }
+    }
+}
+
+.socialShare span {
+    color: rgb(255, 183, 0);
+    font-family: Segoe UI;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+    padding-right: 40px;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+.socialShare a {
+    display: inline-block;
+    padding: 9px;
+}
+
+.relatedPosts {
+    padding-bottom: 72px;
+
+    @media (max-width: 768px) {
+        padding-bottom: 40px;
+    }
+}
+
+.relatedPosts .container {
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.relatedPosts h3 {
+    border-radius: 4px;
+    background: rgb(0, 0, 0);
+    width: 100%;
+    max-width: max-content;
+    padding: 8px 30px 8px 30px;
+
+    color: #ffb700;
+    font-family: Segoe UI;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-left: 15px;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19px;
+        margin-bottom: 30px;
+    }
+}
+
+.postsList {
+    display: grid;
+    gap: 40px;
+
+    @media (max-width: 575px) {
+        gap: 30px;
+    }
+}

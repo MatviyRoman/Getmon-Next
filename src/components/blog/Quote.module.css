@@ -1,0 +1,56 @@
+.quoteContainer {
+    padding-top: 40px;
+
+    @media (max-width: 768px) {
+        padding-top: 20px;
+    }
+}
+
+.postBlockquote {
+    color: #000000;
+    font-family: Segoe UI;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+}
+
+.quote {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    color: #000000;
+    font-family: Segoe UI;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: left;
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 26px;
+    }
+}
+
+.quote img {
+    margin-right: 52px;
+    padding: 10px;
+
+    @media (max-width: 768px) {
+        margin-right: 30px;
+        padding: 5px;
+    }
+}
