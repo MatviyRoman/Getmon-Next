@@ -1,39 +1,29 @@
-"use client";
-
-import { useEffect, useState } from 'react';
 import ButtonLink from '@/components/parts/ButtonLink';
 import Image from 'next/image';
 import styles from './[...not_found]/not-found.module.css';
 import { get404Data } from '@/api/404';
 
-export default function NotFound() {
+export default async function NotFound() {
+    const data = await get404Data();
 
-    const [data, setData] = useState({
-        title: '',
-        description: '',
-        buttonText: '',
-        imageUrl: ''
+    if(data.title === '') {
+        data.title = 'Co za bałagan.';
+    };
 
-        // title: 'Co za bałagan.',
-        // description: 'U nas takiej temperatury nie ma.',
-        // buttonText: 'Zacznij od głównego.',
-        // imageUrl: '/img/error404.png',
-        // // imageUrl: '/img/error404.svg',
-    });
+    if(data.description === '') {
+        data.description = 'U nas takiej temperatury nie ma.';
+    };
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const json = await get404Data();
-                setData(json);
-            } catch (error) {
-                console.error('Failed to fetch 404 data', error);
-            }
-        }
-        fetchData();
-    }, []);
+    if(data.buttonText === '') {
+        data.buttonText = 'Zacznij od głównego..';
+    };
 
-    if (!data.title) return null;
+    if(data.imageUrl === '') {
+        data.imageUrl = '/img/error404.png';
+        // data.imageUrl = '/img/error404.svg';
+    };
+
+    if (!data.title) return null; // TODO: handle error
 
     return (
         <div className={styles.wrapper}>
