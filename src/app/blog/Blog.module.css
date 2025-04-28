@@ -136,14 +136,6 @@
     font-style: italic;
 }
 
-.postQuote {
-    border-left: 4px solid #0066cc;
-    padding-left: 20px;
-    margin: 20px 0;
-    font-style: italic;
-    color: #555;
-}
-
 .noPosts {
     text-align: center;
     padding: 40px;
