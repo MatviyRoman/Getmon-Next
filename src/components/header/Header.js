@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.css';
-import MobileMenuToggle from '@/components/parts/MenuToggle';
+import MobileMenuToggle from '@/components/header/MenuToggle';
 import { companyInfoData } from '@/data/companyInfoData';
 import { usePathname } from 'next/navigation';
 

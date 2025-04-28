@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import StatsBlock from '@/components/blocks/StatsBlock';
+import StatsBlock from '@/components/parts/StatsBlock';
 import '@/components/sections/CounterSection.css';
 
 const mockData = [

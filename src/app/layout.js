@@ -69,8 +69,8 @@ export const metadata = {
 {/* <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://getmon.pl/","url":"https://getmon.pl/","name":"Montaż klimatyzacji, instalacja anten RTV - Wrocław - Getmon.pl","isPartOf":{"@id":"https://getmon.pl/#website"},"datePublished":"2023-02-28T19:08:51+00:00","dateModified":"2023-03-11T14:53:48+00:00","description":"Zajmujemy się montażem anten, alarmu i klimatyzacji na terenie Wrocławia ⭐ Gwarancja ✅ bezpieczeństwo ✅ sprawdź naszą ofertę!","breadcrumb":{"@id":"https://getmon.pl/#breadcrumb"},"inLanguage":"pl-PL","potentialAction":[{"@type":"ReadAction","target":["https://getmon.pl/"]}]},{"@type":"BreadcrumbList","@id":"https://getmon.pl/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Strona główna"}]},{"@type":"WebSite","@id":"https://getmon.pl/#website","url":"https://getmon.pl/","name":"Getmon","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://getmon.pl/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"pl-PL"}]}</script> */}
 
 
-import Header from '@/components/parts/Header';
-import Footer from "@/components/parts/Footer";
+import Header from '@/components/header/Header';
+import Footer from "@/components/footer/Footer";
 
 export default function RootLayout({ children }) {
   return (

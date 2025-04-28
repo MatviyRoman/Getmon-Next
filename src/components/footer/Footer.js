@@ -1,11 +1,11 @@
 "use client"
 
 import React from "react";
-import styles from "@/components/parts/Footer.module.css";
+import styles from "@/components/footer/Footer.module.css";
 import ContactForm from '@/components/sections/ContactForm';
-import FooterNavigation from '@/components/sections/FooterNavigation';
-import FooterCopyright from '@/components/sections/FooterCopyright';
-import FooterSeoLinks from '@/components/sections/FooterSeoLinks';
+import FooterNavigation from '@/components/footer/FooterNavigation';
+import FooterCopyright from '@/components/footer/FooterCopyright';
+import FooterSeoLinks from '@/components/footer/FooterSeoLinks';
 
 export default function Footer() {
     return (

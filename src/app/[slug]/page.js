@@ -1,6 +1,7 @@
 // app/[slug]/page.js
 import { getMockPageBySlug, getAllMockPages } from '@/data/pageData';
 import DynamicPage from '@/components/page/DynamicPage';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
     // const res = await fetch(`${process.env.API_URL}/api/pages`);
@@ -40,6 +41,10 @@ export default async function Page({ params }) {
     // const pageData = await res.json();
 
     const pageData = getMockPageBySlug(params.slug);
+
+    if (!pageData || !pageData.sections) {
+        notFound();
+    }
 
     return <DynamicPage pageData={pageData} />;
 }
