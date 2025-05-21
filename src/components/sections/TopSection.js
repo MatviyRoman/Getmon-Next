@@ -58,7 +58,7 @@ const TopSection = () => {
                         </div>
                     ))}
 
-                    <a className={`${styles.btn} btn-primary`} href="#">
+                    <a className={`${styles.btn} btn-primary`} href="#contact">
                         SKONTAKTUJ SIĘ Z NAMI
                     </a>
                 </div>

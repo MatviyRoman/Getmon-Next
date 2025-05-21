@@ -50,7 +50,7 @@ const FooterNavigation = () => {
 
             <div className={styles.footerMenu}>
                 <div className={`${styles.container} container`}>
-                    <div className={styles.navColumns}>
+                    <div id="contact" className={styles.navColumns}>
 
                         {/* Інформація про компанію та контакти */}
                         {/* <div className={styles.navColumn}>

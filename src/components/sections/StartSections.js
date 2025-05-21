@@ -72,7 +72,7 @@ const StartSection = () => {
                 </div>
             </div>
             <div className="container">
-                <Link href="#" className="btn btn-primary">SKONTAKTUJ SIĘ Z NAMI</Link>
+                <Link href="#contact" className="btn btn-primary">SKONTAKTUJ SIĘ Z NAMI</Link>
             </div>
         </section>
     );
