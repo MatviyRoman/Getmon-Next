@@ -17,6 +17,7 @@
 }
 
 .postsList {
+    width: 100%;
     display: grid;
     gap: 40px;
 
