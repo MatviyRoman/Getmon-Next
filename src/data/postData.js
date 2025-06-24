@@ -1,4 +1,4 @@
-export const mockPosts = [
+export const blogPosts = [
     {
         id: 1,
         slug: "post1",
@@ -201,6 +201,6 @@ export const mockPosts = [
     }
 ];
 
-export async function getMockPosts() {
-    return mockPosts;
+export async function getBlogPosts() {
+    return blogPosts;
 }

@@ -4,34 +4,76 @@ import { notFound } from 'next/navigation';
 import CategoryFilters from '@/components/blog/CategoryFilters';
 import PostItem from '@/components/blog/PostItem';
 import Quote from '@/components/blog/Quote';
-import { getMockPosts } from '@/data/postData';
+import { getBlogPosts } from '@/data/postData';
+// import { getBlogPosts } from '@/api/blogs';
 
 // Function to generate the metadata dynamically
 export async function generateMetadata({ params }) {
     const { slug } = params;
-    const mockPosts = await getMockPosts();
-    const post = mockPosts.find((p) => p.slug === slug);
+    const blogPosts = await getBlogPosts();
+    const post = blogPosts.find((p) => p.slug === slug);
 
     if (!post) {
         return {
             title: "Blog | Getmon",
-            description: "Przeczytaj najnowsze artykuły na temat klimatyzacji i wentylacji...",
+            description: 'Blog Getmon - Przeczytaj najnowsze artykuły na temat klimatyzacji i wentylacji...',
+            alternates: {
+                canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/`,
+            },
         };
     }
 
     // Use post's title and a truncated version of the content for description
-    const description = post.htmlContent.replace(/<[^>]*>/g, '').substring(0, 160) + '...';
+    const description = post.htmlContent
+        .replace(/<[^>]*>/g, ' ') // remove HTML tags, replace with space
+        .replace(/\s+/g, ' ')    // collapse multiple spaces
+        .trim()                   // remove leading/trailing spaces
+        .substring(0, 160)
+        .trim() + '...';
+
+    console.log(post);
+
+    // const description = post.meta_description
+    //     .replace(/<[^>]*>/g, ' ') // remove HTML tags, replace with space
+    //     .replace(/\s+/g, ' ')    // collapse multiple spaces
+    //     .trim()                   // remove leading/trailing spaces
+    //     .substring(0, 160)
+    //     .trim() + '...';
 
     return {
-        title: `${post.title} | Blog | Getmon`,
+        title: `${post.meta_title} | Blog | Getmon`,
         description: description,
+        // keywords: "",
+        robots: post.meta_robots || 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        alternates: {
+            canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/` + post.slug,
+        },
+        openGraph: {
+            title: post.title + " | Blog | Getmon",
+            description: post.meta_description,
+            url: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/` + post.slug + '/',
+            siteName: "GetMon",
+            images: [
+                {
+                    url: post.image,
+                    // width: 1200,
+                    // height: 630,
+                    alt: `${post.title} | Blog | GetMon`,
+                },
+            ],
+            locale: "pl_PL",
+            type: "article",
+        },
+        other: {
+            'article:modified_time': formatDateToISO(post.date),
+        },
     };
 }
 
 export async function getRelatedPosts(postSlug) {
-    const mockPosts = await getMockPosts(); // Fetch mock posts
+    const blogPosts = await getBlogPosts(); // Fetch mock posts
 
-    return mockPosts
+    return blogPosts
         .filter((relatedPost) => relatedPost.slug !== postSlug)
         .sort(() => 0.5 - Math.random()) // Randomize the posts
         .slice(0, 2); // Show 2 random posts
@@ -39,11 +81,11 @@ export async function getRelatedPosts(postSlug) {
 
 export default async function BlogPostPage({ params }) {
     const { slug } = params;
-    const mockPosts = await getMockPosts(); // Fetch the mock posts here
+    const blogPosts = await getBlogPosts(); // Fetch the mock posts here
 
     const relatedPosts = await getRelatedPosts(slug); // Get related posts
 
-    const post = mockPosts.find((p) => p.slug === slug); // Find the current post based on slug
+    const post = blogPosts.find((p) => p.slug === slug); // Find the current post based on slug
     const site_url = process.env.NEXT_PUBLIC_URL;
     const post_url = `${site_url}/blog/${slug}/`;
 
@@ -79,9 +121,11 @@ export default async function BlogPostPage({ params }) {
                 </div>
 
                 {/* Use the Quote component */}
-                <div className={`${styles.container} container`}>
-                    <Quote text={post.quote} />
-                </div>
+                {post.quote && (
+                    <div className={`${styles.container} container`}>
+                        <Quote text={post.quote} />
+                    </div>
+                )}
 
                 {/* Social Media Sharing */}
                 <div className={styles.socialShare}>
@@ -113,4 +157,12 @@ export default async function BlogPostPage({ params }) {
             </div>
         </>
     );
+}
+
+// Helper to convert '23.06.2025' to ISO string "2025-06-22T23:00:00.000Z"
+function formatDateToISO(dateStr) {
+    if (!dateStr) return '';
+    const [day, month, year] = dateStr.split('.');
+    const date = new Date(`${year}-${month}-${day}T00:00:00+01:00`);
+    return date.toISOString();
 }

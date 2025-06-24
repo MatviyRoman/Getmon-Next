@@ -26,10 +26,14 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  canonical: "https://getmon.pl/",
+  canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}`,
+  alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}`,
+  },
   title: "Montaż klimatyzacji, instalacja anten RTV - Wrocław - Getmon.pl",
   description: "Zajmujemy się montażem anten, alarmu i klimatyzacji na terenie Wrocławia ⭐ Gwarancja ✅ bezpieczeństwo ✅ sprawdź naszą ofertę!",
-  keywords: "моніторинг, аналітика, GetMon",
+  keywords: "Montaż klimatyzacji, instalacja anten RTV, Wrocław, GetMon",
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   authors: [
     {
       name: "Roman Matviy",
@@ -43,7 +47,7 @@ export const metadata = {
   openGraph: {
     title: "Montaż klimatyzacji, instalacja anten RTV - Wrocław - Getmon.pl",
     description: "Zajmujemy się montażem anten, alarmu i klimatyzacji na terenie Wrocławia ⭐ Gwarancja ✅ bezpieczeństwo ✅ sprawdź naszą ofertę!",
-    url: "https://getmon.pl",
+    url: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}`,
     siteName: "GetMon",
     // images: [
     //   {
@@ -53,9 +57,12 @@ export const metadata = {
     //     alt: "GetMon – SEO оптимізований сайт",
     //   },
     // ],
-    url: "https://getmon.pl/",
     locale: "pl_PL",
     type: "website",
+  },
+  other: {
+    'article:modified_time': '2023-03-11T14:53:48+00:00',
+    // 'article:modified_time': new Date().toISOString(), // Use current date for demo purposes
   },
 };
 
@@ -96,8 +103,8 @@ export default function RootLayout({ children }) {
           name="msapplication-TileImage"
           content="/img/cropped-getmon_fav-270x270.png"
         />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"></meta>
-        <meta property="article:modified_time" content="2023-03-11T14:53:48+00:00"></meta>
+        {/* <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" /> */}
+        {/* <meta property="article:modified_time" content="2023-03-11T14:53:48+00:00" /> */}
         <meta name="google-site-verification" content="99RlA_3wOmqBTKgzLHvHZVDkup8MRCWjPPqEuab81RE" />
       </head>
       <body className={`${poppins.variable} ${roboto.variable}`}>

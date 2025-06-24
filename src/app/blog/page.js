@@ -4,15 +4,38 @@ import styles from './Blog.module.css';
 import PaginationControls from '@/components/parts/PaginationControls';
 import CategoryFilters from '@/components/blog/CategoryFilters';
 import PostItem from '@/components/blog/PostItem';
-import { getMockPosts } from '@/data/postData'; // Mock data for blog posts
+import { getBlogPosts } from '@/data/postData'; // Mock data for blog posts
+// import { getBlogPosts } from '@/api/blogs'; // API call to fetch blog posts
+
 
 export const metadata = {
     title: "Blog | Getmon",
     description: "Przeczytaj najnowsze artykuły na temat klimatyzacji i wentylacji...",
+    keywords: "Blog, klimatyzacji, wentylacji, GetMon",
+    robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    alternates: {
+        canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/`,
+    },
+    openGraph: {
+        title: "Blog | Getmon",
+        description: "Przeczytaj najnowsze artykuły na temat klimatyzacji i wentylacji...",
+        url: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/`,
+        siteName: "GetMon",
+        // images: [
+        //   {
+        //     url: "https://getmon.pl/og-image.jpg",
+        //     width: 1200,
+        //     height: 630,
+        //     alt: "GetMon – SEO оптимізований сайт",
+        //   },
+        // ],
+        locale: "pl_PL",
+        type: "website",
+    },
 };
 
 export default async function Blog({ searchParams }) {
-    const mockPosts = await getMockPosts();
+    const blogPosts = await getBlogPosts();
 
     const params = await searchParams;
     const currentPage = Number(params?.page) || 1;
@@ -20,10 +43,16 @@ export default async function Blog({ searchParams }) {
 
     const postsPerPage = 6;
 
+    // Визначаємо robots залежно від наявності ?page
+    const hasPageParam = !!params?.page;
+    const robots = hasPageParam
+        ? 'noindex, nofollow'
+        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
     // Filter posts by category if specified
     const filteredPosts = categoryId
-        ? mockPosts.filter(post => post.category.id === categoryId)
-        : mockPosts;
+        ? blogPosts.filter(post => post.category.id === categoryId)
+        : blogPosts;
 
     // Pagination logic
     const totalPosts = filteredPosts.length;
@@ -31,25 +60,8 @@ export default async function Blog({ searchParams }) {
     const startIndex = (currentPage - 1) * postsPerPage;
     const paginatedPosts = filteredPosts.slice(startIndex, startIndex + postsPerPage);
 
-    /* 
-    // REAL API IMPLEMENTATION (COMMENTED OUT)
-    const apiUrl = process.env.API_URL;
-    let posts = [];
-    let totalPosts = 0;
-
-    try {
-        const url = categoryId
-            ? `${apiUrl}/api/posts?page=${currentPage}&per_page=${postsPerPage}&category=${categoryId}`
-            : `${apiUrl}/api/posts?page=${currentPage}&per_page=${postsPerPage}`;
-
-        const response = await fetch(url);
-        const data = await response.json();
-        posts = data.posts;
-        totalPosts = data.total;
-    } catch (error) {
-        console.error("Failed to fetch posts:", error);
-    }
-    */
+    // Added robots to metadata
+    metadata.robots = robots;
 
     return (
         <>
