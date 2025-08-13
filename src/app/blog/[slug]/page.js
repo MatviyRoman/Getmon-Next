@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation';
 import CategoryFilters from '@/components/blog/CategoryFilters';
 import PostItem from '@/components/blog/PostItem';
 import Quote from '@/components/blog/Quote';
-import { getBlogPosts } from '@/data/postData';
-// import { getBlogPosts } from '@/api/blogs';
+// import { getBlogPosts } from '@/data/postData';
+import { getBlogPosts } from '@/api/blogs';
 
 // Function to generate the metadata dynamically
 export async function generateMetadata({ params }) {
@@ -24,32 +24,30 @@ export async function generateMetadata({ params }) {
     }
 
     // Use post's title and a truncated version of the content for description
-    const description = post.htmlContent
-        .replace(/<[^>]*>/g, ' ') // remove HTML tags, replace with space
-        .replace(/\s+/g, ' ')    // collapse multiple spaces
-        .trim()                   // remove leading/trailing spaces
-        .substring(0, 160)
-        .trim() + '...';
-
-    console.log(post);
-
-    // const description = post.meta_description
+    // const description = post.htmlContent
     //     .replace(/<[^>]*>/g, ' ') // remove HTML tags, replace with space
     //     .replace(/\s+/g, ' ')    // collapse multiple spaces
     //     .trim()                   // remove leading/trailing spaces
     //     .substring(0, 160)
     //     .trim() + '...';
 
+    const description = post.meta_description
+        .replace(/<[^>]*>/g, ' ') // remove HTML tags, replace with space
+        .replace(/\s+/g, ' ')    // collapse multiple spaces
+        .trim()                   // remove leading/trailing spaces
+        .substring(0, 160)
+        .trim();
+
     return {
-        title: `${post.meta_title} | Blog | Getmon`,
+        title: `${post.meta_title} | Blog | Getmon.pl`,
         description: description,
-        // keywords: "",
+        keywords: "",
         robots: post.meta_robots || 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
         alternates: {
-            canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/` + post.slug,
+            canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/` + post.slug + '/',
         },
         openGraph: {
-            title: post.title + " | Blog | Getmon",
+            title: post.title + " | Blog | Getmon.pl",
             description: post.meta_description,
             url: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/` + post.slug + '/',
             siteName: "GetMon",
@@ -58,7 +56,7 @@ export async function generateMetadata({ params }) {
                     url: post.image,
                     // width: 1200,
                     // height: 630,
-                    alt: `${post.title} | Blog | GetMon`,
+                    alt: `${post.title} | Blog | GetMon.pl`,
                 },
             ],
             locale: "pl_PL",

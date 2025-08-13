@@ -4,8 +4,8 @@ import styles from './Blog.module.css';
 import PaginationControls from '@/components/parts/PaginationControls';
 import CategoryFilters from '@/components/blog/CategoryFilters';
 import PostItem from '@/components/blog/PostItem';
-import { getBlogPosts } from '@/data/postData'; // Mock data for blog posts
-// import { getBlogPosts } from '@/api/blogs'; // API call to fetch blog posts
+// import { getBlogPosts } from '@/data/postData'; // Mock data for blog posts
+import { getBlogPosts } from '@/api/blogs'; // API call to fetch blog posts
 
 
 export const metadata = {
@@ -17,7 +17,7 @@ export const metadata = {
         canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/`,
     },
     openGraph: {
-        title: "Blog | Getmon",
+        title: "Blog | Getmon.pl",
         description: "Przeczytaj najnowsze artykuły na temat klimatyzacji i wentylacji...",
         url: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/blog/`,
         siteName: "GetMon",
