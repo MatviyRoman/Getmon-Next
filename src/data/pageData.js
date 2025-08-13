@@ -1,7 +1,8 @@
 // utils/mockData.js
-export const mockPages = [
+export const dataPages = [
     {
         slug: "info",
+        title: "KLIMATYZACJA WROCŁAW – GETMON",
         meta_title: "Klimatyzacja Wrocław - serwis - montaż - Getmon.pl",
         meta_description:
             "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
@@ -86,6 +87,7 @@ export const mockPages = [
     },
     {
         slug: "klimatyzacja-wroclaw",
+        title: "KLIMATYZACJA WROCŁAW – GETMON",
         meta_title: "Klimatyzacja Wrocław - serwis - montaż - Getmon.pl",
         meta_description:
             "Potrzebna Ci klimatyzacja na terenie Wrocławia i okolic? ⭐ Sprawdź ofertę naszej firmy - szybki montaż i gwarancja!",
@@ -121,6 +123,7 @@ export const mockPages = [
     },
     {
         slug: "serwis-klimatyzacji",
+        title: "SERWIS KLIMATYZACJI WROCŁAW",
         meta_title: "Serwis klimatyzacji Wrocław - Getmon.pl",
         meta_description:
             "Profesjonalny serwis klimatyzacji we Wrocławiu. Naprawy, przeglądy, czyszczenie klimatyzacji.",
@@ -154,10 +157,10 @@ export const mockPages = [
     },
 ];
 
-export const getMockPageBySlug = (slug) => {
-    return mockPages.find((page) => page.slug === slug) || null;
+export const getPageBySlug = (slug) => {
+    return dataPages.find((page) => page.slug === slug) || null;
 };
 
-export const getAllMockPages = () => {
-    return mockPages.map((page) => ({ slug: page.slug }));
+export const getAllPages = () => {
+    return dataPages.map((page) => ({ slug: page.slug }));
 };

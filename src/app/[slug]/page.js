@@ -1,13 +1,11 @@
 // app/[slug]/page.js
-import { getMockPageBySlug, getAllMockPages } from '@/data/pageData';
+// import { getPageBySlug, getAllPages } from '@/data/pageData';
+import { getPageBySlug, getAllPages } from '@/api/pages';
 import DynamicPage from '@/components/page/DynamicPage';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-    // const res = await fetch(`${process.env.API_URL}/api/pages`);
-    // const pages = await res.json();
-
-    const pages = getAllMockPages();
+    const pages = await getAllPages();
 
     return pages.map((page) => ({
         slug: page.slug,
@@ -16,24 +14,40 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     try {
-        const page = await getMockPageBySlug(params.slug);
+        const page = await getPageBySlug(params.slug);
 
         if (!page) {
             return {}; // Порожнє metadata (можна краще обробити)
         }
 
         return {
-            title: page.meta_title,
+            title: `${page.title} | Page | Getmon.pl`,
             description: page.meta_description,
-            openGraph: {
-                title: page.meta_title,
-                description: page.meta_description,
-                url: `https://getmon.pl/${page.slug}`,
-                type: 'article',
-            },
-            robots: page.meta_robots,
+            keywords: "",
+            robots: page.meta_robots || 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
             alternates: {
-                canonical: `https://getmon.pl/${page.slug}`,
+                canonical: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/` + page.slug + '/',
+            },
+            openGraph: {
+                title: page.title + " | Page | Getmon.pl",
+                description: page.meta_description,
+                url: `${process.env.NEXT_PUBLIC_URL || 'https://getmon.pl'}/` + page.slug + '/',
+                siteName: "GetMon",
+                images: [
+                    {
+                        url: page.image,
+                        // width: 1200,
+                        // height: 630,
+                        alt: `${page.title} | Page | GetMon.pl`,
+                    },
+                ],
+                locale: "pl_PL",
+                type: 'article',
+                // type: 'website',
+            },
+            other: {
+                'article:modified_time': page.updated_at,
+                // 'article:modified_time': formatDateToISO(page.updated_at),
             },
         };
     } catch (error) {
@@ -44,10 +58,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
     try {
-        // const res = await fetch(`${process.env.API_URL}/api/pages/${params.slug}`);
-        // const pageData = await res.json();
-
-        const pageData = await getMockPageBySlug(params.slug);
+        const pageData = await getPageBySlug(params.slug);
 
         if (!pageData || !pageData.sections) {
             notFound(); // notFound 404
@@ -59,4 +70,12 @@ export default async function Page({ params }) {
         console.error('Error in Page fetch:', error);
         notFound(); // notFound 404
     }
+}
+
+// Helper to convert '23.06.2025' to ISO string "2025-06-22T23:00:00.000Z"
+function formatDateToISO(dateStr) {
+    if (!dateStr) return '';
+    const [day, month, year] = dateStr.split('.');
+    const date = new Date(`${year}-${month}-${day}T00:00:00+01:00`);
+    return date.toISOString();
 }
