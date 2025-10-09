@@ -33,7 +33,7 @@ const Header = () => {
     const menuItems = [
         {
             title: "Klimatyzacja",
-            href: "#",
+            href: "klimatyzacja-wroclaw",
             link: "/klimatyzacja-wroclaw/",
             submenu: [
                 { title: "Klimatyzacja Wrocław", href: "/klimatyzacja-wroclaw/" },
@@ -47,6 +47,18 @@ const Header = () => {
             ]
         },
         {
+            title: "Wentylacja",
+            href: "/wentylacja-wroclaw/",
+            link: "/wentylacja-wroclaw/",
+            submenu: null
+        },
+        {
+            title: "Pompy ciepła",
+            href: "/pompy-ciepla-wroclaw/",
+            link: "/pompy-ciepla-wroclaw/",
+            submenu: null
+        },
+        {
             title: "Monitoring",
             href: "#",
             link: "/montaz-monitoringu-wroclaw/",
@@ -54,7 +66,7 @@ const Header = () => {
                 { title: "O monitoringu", href: "/montaz-monitoringu-wroclaw/" },
                 { title: "Cyfrowy IP", href: "/montaz-monitoringu-cyfrowego-ip-wroclaw/" },
                 { title: "Analogowy", href: "/montaz-monitoringu-analogowego-wroclaw/" },
-                { title: "Hybrydowy", href: "/montaz-monitoringu-hybrydowego-wroclaw/" }
+                // { title: "Hybrydowy", href: "/montaz-monitoringu-hybrydowego-wroclaw/" }
             ]
         },
         {
@@ -65,7 +77,7 @@ const Header = () => {
                 { title: "O systemach alarmowych", href: "/systemy-alarmowe-wroclaw/" },
                 { title: "Przewodowe", href: "/systemy-alarmowe-przewodowe-wroclaw/" },
                 { title: "Bezprzewodowe", href: "/systemy-alarmowe-bezprzewodowe-wroclaw/" },
-                { title: "Rodzaje kamer do monitoringu", href: "/rodzaje-kamer-do-monitoringu/" }
+                // { title: "Rodzaje kamer do monitoringu", href: "/rodzaje-kamer-do-monitoringu/" }
             ]
         },
         {

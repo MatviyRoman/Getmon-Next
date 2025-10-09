@@ -12,7 +12,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 2,
-            name: "O naszej firmie"
+            name: "O nas"
         },
         quote: "Najwyższa jakość sprzętu to nasz priorytet",
         image: "/img/blog/blog1.png",
@@ -31,7 +31,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Profesjonalne urządzenia, umożliwiające chłodzenie kilku pokoi o dużym metrażu to kwota w granicach 5-10 tys. zł. Kwota, jaką trzeba przeznaczyć na montaż i rozruch zależy głównie od zakresu prac oraz długości stworzonej instalacji.",
         image: "/img/blog/blog2.png",
@@ -60,7 +60,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
         image: "/img/blog/blog3.png",
@@ -79,7 +79,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
         image: "/img/blog/blog4.png",
@@ -98,7 +98,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
         image: "/img/blog/blog5.png",
@@ -117,7 +117,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
         image: "/img/blog/blog6.png",
@@ -136,7 +136,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
         image: "/img/blog/blog6.png",
@@ -155,7 +155,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
         image: "/img/blog/blog6.png",
@@ -174,7 +174,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
         image: "/img/blog/blog6.png",
@@ -193,7 +193,7 @@ export const blogPosts = [
         date: "12.11.2025",
         category: {
             id: 1,
-            name: "Nasze praktyki"
+            name: "Nasze realizacje"
         },
         quote: "Dopasowujemy rozwiązania do Twoich potrzeb",
         image: "/img/blog/blog6.png",

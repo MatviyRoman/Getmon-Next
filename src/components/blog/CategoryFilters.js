@@ -17,19 +17,19 @@ export default function CategoryFilters({ categoryId = null }) {
                     href="/blog?categoryID=1"
                     className={`${styles.categoryButton} ${categoryId === 1 ? styles.active : ''}`}
                 >
-                    Nasze praktyki
+                    Nasze realizacje
                 </Link>
                 <Link
                     href="/blog?categoryID=2"
                     className={`${styles.categoryButton} ${categoryId === 2 ? styles.active : ''}`}
                 >
-                    O naszej firmie
+                    O nas
                 </Link>
                 <Link
                     href="/blog?categoryID=3"
                     className={`${styles.categoryButton} ${categoryId === 3 ? styles.active : ''}`}
                 >
-                    Część teoretyczna procesów
+                    Najnowsze wpisy blogowe 
                 </Link>
             </div>
         </div>

@@ -29,6 +29,32 @@ export const footerNavigationData = {
             ]
         },
         {
+            title: "WENTYLACJA",
+            links: [
+                { text: "Wentylacja Wrocław", url: "/wentylacja-wroclaw" },
+            //     { text: "Ścienna (SPLIT)", url: "/wentylacja/scienna-split" },
+            //     { text: "MultiSplit", url: "/wentylacja/multisplit" },
+            //     { text: "Kanalowa", url: "/wentylacja/kanalowa" },
+            //     { text: "Kasetonowa", url: "/wentylacja/kasetonowa" },
+            //     { text: "Przypodłogowo-podstropowa", url: "/wentylacja/przypodlogowo-podstropowa" },
+            //     { text: "Przenośna", url: "/wentylacja/przenosna" },
+            //     { text: "Rodzaje Klimatyzacji", url: "/wentylacja/rodzaje" }
+            ]
+        },
+        {
+            title: "POMPY CIEPŁA",
+            links: [
+                { text: "Pompy ciepła Wrocław", url: "/pompy-ciepla-wroclaw" },
+            //     { text: "Ścienna (SPLIT)", url: "/wentylacja/scienna-split" },
+            //     { text: "MultiSplit", url: "/wentylacja/multisplit" },
+            //     { text: "Kanalowa", url: "/wentylacja/kanalowa" },
+            //     { text: "Kasetonowa", url: "/wentylacja/kasetonowa" },
+            //     { text: "Przypodłogowo-podstropowa", url: "/wentylacja/przypodlogowo-podstropowa" },
+            //     { text: "Przenośna", url: "/wentylacja/przenosna" },
+            //     { text: "Rodzaje Klimatyzacji", url: "/wentylacja/rodzaje" }
+            ]
+        },
+        {
             title: "MONITORING",
             links: [
                 { text: "Monitoring Wrocław", url: "/monitoring-wroclaw" },
@@ -51,10 +77,10 @@ export const footerNavigationData = {
         {
             title: "BLOG",
             links: [
-                { text: "Wszystkie artykuły", url: "/blog" },
-                { text: "Porady", url: "/blog/porady" },
-                { text: "Nowości", url: "/blog/nowosci" },
-                { text: "Promocje", url: "/blog/promocje" }
+                { text: "Nasze realizacje", url: "/blog/?categoryID=1" },
+                { text: "O nas", url: "/blog/?categoryID=2" },
+                { text: "Najnowsze wpisy blogowe", url: "/blog/?categoryID=3" },
+                // { text: "Promocje", url: "/blog/promocje" }
             ]
         }
     ]
