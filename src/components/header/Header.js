@@ -33,7 +33,7 @@ const Header = () => {
     const menuItems = [
         {
             title: "Klimatyzacja",
-            href: "klimatyzacja-wroclaw",
+            href: "/klimatyzacja-wroclaw",
             link: "/klimatyzacja-wroclaw/",
             submenu: [
                 { title: "Klimatyzacja Wrocław", href: "/klimatyzacja-wroclaw/" },
