@@ -203,7 +203,8 @@ const ReviewSection = () => {
             </div>
 
             <div className={`${styles.container} ${styles.containerBottom} container`}>
-                <Link href="#" className={styles.link}>Zobacz wszystkie recenzje</Link>
+                 {/* <Link href="#" className={styles.link}>Zobacz wszystkie recenzje</Link> */}
+                <Link href="#" className={styles.link}>Zobacz wszystkie opinie</Link>
             </div>
         </section>
     );

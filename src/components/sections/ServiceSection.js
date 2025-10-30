@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './ServicesSection.module.css';
 
 const ServicesSection = () => {
@@ -14,7 +15,10 @@ const ServicesSection = () => {
                 width: 562,
                 height: 469
             },
-            cta: 'DOWIEDZ SIĘ WIĘCEJ'
+            cta: {
+                text: 'DOWIEDZ SIĘ WIĘCEJ',
+                url: '/klimatyzacja-wroclaw/'
+            }
         },
         {
             id: 2,
@@ -26,7 +30,10 @@ const ServicesSection = () => {
                 width: 446,
                 height: 299
             },
-            cta: 'DOWIEDZ SIĘ WIĘCEJ'
+            cta: {
+                text: 'DOWIEDZ SIĘ WIĘCEJ',
+                url: '/monitoring-wroclaw/'
+            }
         },
         {
             id: 3,
@@ -38,7 +45,44 @@ const ServicesSection = () => {
                 width: 364,
                 height: 314
             },
-            cta: 'DOWIEDZ SIĘ WIĘCEJ'
+            cta: {
+                text: 'DOWIEDZ SIĘ WIĘCEJ',
+                url: '/alarmy-wroclaw/'
+            }
+        },
+        {
+            id: 4,
+            title: 'Wentylacja',
+            description: 'Zajmujemy się kompleksowym montażem systemów wentylacyjnych w domach, biurach i obiektach przemysłowych. Dobieramy rozwiązania dopasowane do potrzeb klienta – od projektu po uruchomienie instalacji.',
+            image: {
+                src: '/img/wentylacja-small.png',
+                // src: '/img/wentylacja.png',
+                alt: 'Wentylacja',
+                // width: 400,
+                // height: 300
+                width: 400,
+                height: 300
+            },
+            cta: {
+                text: 'DOWIEDZ SIĘ WIĘCEJ',
+                url: '/wentylacja-wroclaw/'
+            }
+        },
+        { 
+            id: 5,
+            title: 'Pompy ciepła',
+            description: 'Oferujemy kompleksowy montaż pomp ciepła dla domów i firm. Zapewniamy doradztwo, dobór odpowiedniego urządzenia, profesjonalną instalację oraz uruchomienie systemu.',
+            image: {
+                src: '/img/pompy-ciepla-small1.png',
+                // src: '/img/pompy-ciepla.png',
+                alt: 'Pompy ciepła',
+                width: 400,
+                height: 300
+            },
+            cta: {
+                text: 'DOWIEDZ SIĘ WIĘCEJ',
+                url: '/pompy-ciepla-wroclaw/'
+            }
         }
     ];
 
@@ -57,7 +101,7 @@ const ServicesSection = () => {
                                 <h2 className={styles.serviceTitle}>{service.title}</h2>
                                 <p className={styles.serviceDescription}>{service.description}</p>
                                 <button className={`${styles.ctaButton} btn btn-primary`}>
-                                    {service.cta}
+                                    <Link href={service.cta.url}>{service.cta.text}</Link>
                                 </button>
                             </div>
                             <div className={styles.imageContainer}>

@@ -4,11 +4,14 @@ export const footerNavigationData = {
         {
             title: "INFORMACJE O FIRMIE",
             links: [
-                { text: "Podwale 37/38, 50-040 Wrocław", url: "https://maps.app.goo.gl/PHqNAuC1VpeQV1PLA" },
+                { 
+                    text: "Centralna 37/U, 52-114 Wrocław", 
+                    url: "https://maps.app.goo.gl/PHqNAuC1VpeQV1PLA" 
+                },
             ]
         },
         {
-            title: "Łączność",
+            title: "KONTAKT",
             links: [
                 { text: "+48 884 884 823", url: "tel:+48884884823" },
                 { text: "+48 517 211 442", url: "tel:+48517211442" },
