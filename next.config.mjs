@@ -2,6 +2,7 @@
 const nextConfig = {
     trailingSlash: true,
     images: {
+        unoptimized: true,
         domains: [
             '3201956.rg384161.web.hosting-test.net',
             'admin.getmon.pl',
