@@ -191,6 +191,10 @@
     }
 }
 
+.htmlContent figcaption {
+    display: none;
+}
+
 .sloganSection {
     background: linear-gradient(160.71deg, #222222 31.821%,#373737 66.771%);
     padding-top: 17px;
