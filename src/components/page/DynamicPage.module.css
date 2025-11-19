@@ -269,9 +269,10 @@
 .main > .pageSection:nth-child(3) {
     margin-top: -84px;
 
-    /* @media (max-width: 600px) {
-        margin-top: -120px;
-    } */
+    @media (max-width: 600px) {
+        /* margin-top: -120px; */
+        margin-top: 0;
+    }
 
     /* @media (max-width: 399px) {
         margin-top: -140px;
