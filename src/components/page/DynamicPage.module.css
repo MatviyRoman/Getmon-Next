@@ -191,7 +191,7 @@
     }
 }
 
-.htmlContent figcaption {
+.htmlContent figure a, .htmlContent figcaption {
     display: none;
 }
 
