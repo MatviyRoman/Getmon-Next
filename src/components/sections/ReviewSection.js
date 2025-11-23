@@ -54,7 +54,7 @@ const formatDate = (dateString) => {
     if (diffInMonths < 12) return `${diffInMonths} miesięcy temu`;
 
     const diffInYears = Math.floor(diffInMonths / 12);
-    return `Ponad ${diffInYears} rok temu`;
+    return `Ponad ${diffInYears} lata temu`;
 };
 
 const ReviewSection = () => {
