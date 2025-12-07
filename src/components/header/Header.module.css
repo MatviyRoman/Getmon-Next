@@ -67,7 +67,7 @@
 
         .link {
             color: #FFB700;
-            font-family: Segoe UI;
+            font-family: var(--font-poppins);
             font-size: 16px;
             font-weight: 700;
             line-height: 21px;
@@ -246,7 +246,6 @@
         }
 
         .link {
-            /* font-family: Segoe UI; */
             font-family: var(--font-poppins);
             font-size: 16px;
             font-weight: 400;
@@ -279,7 +278,7 @@
         display: none;
 
         .linkWrapper .link {
-            font-family: Segoe UI;
+            font-family: var(--font-poppins);
             font-size: 14px;
             font-weight: 400;
             line-height: 17px;
