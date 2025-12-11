@@ -55,7 +55,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 999px;
+    max-width: 1030px;
     width: 100%;
 
     .nav__top {
